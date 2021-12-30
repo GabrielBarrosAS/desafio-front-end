@@ -1,0 +1,49 @@
+.movie-scroll-select{
+    color: white;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    transform: scale(1.2) translate(0px,25px);
+    transition-duration: 0.75s;
+}
+
+.movie-scroll{
+    background-color: white;
+}
+
+.movie-tittle{
+    color: black;
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 3vmin;
+    font-weight: 700;
+    outline: none;
+    white-space: nowrap;
+}
+
+.movie-image{
+    height: 200px;
+    animation: 1ms;
+}
+
+.movies-carousel{
+    border: 1px solid red;
+    margin-top: 55px;
+}
+
+.movies-carousel-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    background-color: red;
+    width: 100px;
+}
+
+.movies-carousel-button:active{
+    border: 3px solid white;
+    transform: translate(0px,2px);
+}

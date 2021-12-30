@@ -1,0 +1,52 @@
+.btn-header{
+    color: white !important;
+}
+
+.btn-header:active{
+    background-color: red;
+}
+
+.btn-header:focus {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+.header{
+    background-color: #3d3d3d;
+    transition: 1500ms;
+    opacity: 30%;
+}
+
+.header:hover{
+    opacity: 100%;
+}
+
+.systemName{
+    color: red;
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 6vmin;
+    font-weight: 700;
+    outline: none;
+    white-space: nowrap;
+
+}
+#leadTittle{
+    transform: rotate(-4deg);
+}
+
+#movieTittle{
+    transform: rotate(4deg);
+}
+
+#form1{
+    background-color: #3d3d3d;
+}
+
+#form1:focus {
+    outline: none !important;
+    box-shadow: none;
+ }
+.nav {
+    color: white;
+}
