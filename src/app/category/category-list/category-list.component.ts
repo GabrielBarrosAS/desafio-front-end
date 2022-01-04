@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from 'src/app/movies/movies.service';
-import { MovieDetail } from 'src/app/movies/util/MovieDetail.class';
 import { CategoryService } from '../category.service';
 import { CategoryDetail } from '../util/CategoryDetail.class';
 
@@ -23,31 +21,35 @@ export class CategoryListComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryAll = this.categoryService.getCategorys()
-    this.categoryToBeShow = this.categoryAll.slice(0, 3)
+    this.categoryToBeShow = this.categoryAll.slice(0, 5)
   }
 
   previousCategory() {
     if (this.index > 0) {
       this.index--;
     } else {
+      this.index = 0
       this.categoryAll.unshift(this.categoryAll[this.categoryAll.length - 1])
       this.categoryAll.pop()
-      this.categoryToBeShow = this.categoryAll.slice(0, 3)
+      this.categoryToBeShow = this.categoryAll.slice(0, this.categoryToBeShow.length)
     }
   }
 
   nextCategory() {
-    if (this.index < 2) {
+    if (this.index < this.categoryToBeShow.length-1) {
       this.index++;
     } else {
       this.categoryAll.push(this.categoryAll[0])
       this.categoryAll.shift()
-      this.categoryToBeShow = this.categoryAll.slice(0, 3)
+      this.categoryToBeShow = this.categoryAll.slice(0, this.categoryToBeShow.length)
     }
   }
 
   clickCategory(i:number){
     this.categoryAll = this.categoryService.getCategorys()
+    this.index = i
+  }
+  mouseEnter(i:number){
     this.index = i
   }
 }
