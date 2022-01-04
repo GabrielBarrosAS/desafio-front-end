@@ -5,13 +5,11 @@ import { MoviesComponent } from './movies.component';
 
 import { MatIconModule } from '@angular/material/icon';
 
-
-
 @NgModule({
   declarations: [MoviesComponent],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers:[MoviesService],
   exports:[MoviesComponent]

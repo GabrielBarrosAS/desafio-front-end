@@ -1,11 +1,10 @@
 <div>
     <div id="list-movies" class="d-flex justify-content-around">
-        <div id="movie-item" 
-            *ngFor="let item of movies, let i = index"
-            [ngClass]="{'movie-scroll-select': index == i,'movie-scroll movie-tittle':index !== i}">
-            <div *ngIf="i < 8" class="d-flex flex-column">
+        <div id="movie-item" *ngFor="let item of movies, let i = index"
+            [ngClass]="{'movie-scroll-select': index == i,'movie-scroll':index !== i}">
+            <div *ngIf="i < 8" class="d-flex flex-column" style="width: 100%;">
                 <span class="d-flex justify-content-center">{{item.name}}</span>
-                <img src="{{item.url}}" class="movie-image" (click)="mouseMovie(i)"(mouseenter)="mouseMovie(i)">
+                <img src="{{item.url}}" class="movie-image" (mouseenter)="mouseMovie(i)">
             </div>
         </div>
     </div>

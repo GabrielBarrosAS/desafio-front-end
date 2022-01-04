@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { NavbarModule } from './navbar/navbar.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MoviesModule } from './movies/movies.module';
+import { CategoryModule } from './category/category.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NavbarModule,
-    MoviesModule
+    MoviesModule,
+    CategoryModule
   ],
   providers: [],
   bootstrap: [AppComponent],

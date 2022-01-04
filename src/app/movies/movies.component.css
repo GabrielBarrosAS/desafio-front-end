@@ -1,49 +1,56 @@
-.movie-scroll-select{
-    color: white;
+#movie-item{
+    font-family: 'Roboto';
     font-weight: 700;
+    font-size: 3vmin;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 11.8%;
+    border-radius: 8%;
+}
+.movie-scroll-select{
+    color: white;
     background-color: red;
-    transform: scale(1.2) translate(0px,25px);
-    transition-duration: 0.75s;
+    transform: scale(1) translate(0px,5%);
 }
 
 .movie-scroll{
+    color: black;
     background-color: white;
 }
 
-.movie-tittle{
-    color: black;
-    text-align: center;
-    font-family: 'Roboto';
-    font-size: 3vmin;
-    font-weight: 700;
-    outline: none;
-    white-space: nowrap;
-}
-
 .movie-image{
+    width: 100%;
     height: 200px;
-    animation: 1ms;
+    border-radius: 0% 0% 8% 8%;
 }
 
 .movies-carousel{
-    border: 1px solid red;
-    margin-top: 55px;
+    position: absolute;
+    top: 10%;
+    left: 0px;
+    width: 100%;
+    height: 0%;
 }
 
 .movies-carousel-button{
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50px;
     border: none;
     background-color: red;
-    width: 100px;
+    width: 2%;
+    height: 200px;
+    opacity: 10%;
+    transition: 1000ms;
 }
 
 .movies-carousel-button:active{
-    border: 3px solid white;
-    transform: translate(0px,2px);
+    border: 1px solid white;
+}
+
+.movies-carousel-button:hover{
+    transition: 0ms;
+    opacity: 100%;
 }

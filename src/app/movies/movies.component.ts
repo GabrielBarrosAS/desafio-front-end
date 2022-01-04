@@ -1,4 +1,3 @@
-import { interval } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from './movies.service';
 import { MovieDetail } from './util/MovieDetail.class';
@@ -20,16 +19,8 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.moviesAll = this.moviesService.getMovies()
+    this.moviesAll = this.moviesService.getMovies().slice()
     this.movies = this.moviesAll.slice(0,8)
-
-    /*interval(2000).subscribe((d) => {
-      if(this.index < this.movies.length-1){
-        this.index++
-      }else{
-        this.index = 0
-      }
-    })*/
   }
 
   mouseMovie(i:number){

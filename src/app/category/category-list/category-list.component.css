@@ -1,0 +1,63 @@
+.div-root{
+    margin-top: 3%;
+    border: 1px solid red;
+    width: 100%;
+}
+
+.variable-text{
+    color: white;
+}
+
+.categories-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 32%;
+    border-radius: 8%;
+}
+
+.category-item-button{
+    background-color: red;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 3vmin;
+    width: 100%;
+    height: 100%;
+    border-radius: 8%;
+    border: none;
+}
+
+.category-item-button-selected{
+    border: 4px solid white;
+}
+
+.category-carousel{
+    position: absolute;
+    top: 49.5%;
+    left: 0px;
+    width: 100%;
+    height: 0%;
+}
+
+.category-carousel-button{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: red;
+    width: 2%;
+    height: 200px;
+    opacity: 10%;
+    transition: 1000ms;
+}
+
+.category-carousel-button:active{
+    border: 1px solid white;
+}
+
+.category-carousel-button:hover{
+    transition: 0ms;
+    opacity: 100%;
+}
