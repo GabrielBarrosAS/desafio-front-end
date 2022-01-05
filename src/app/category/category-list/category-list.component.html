@@ -6,11 +6,10 @@
         </button>
 
         <div *ngFor="let item of categoryToBeShow,let i = index" class="categories-list">
-            <button class="category-item-button"
-                [ngClass]="{'category-item-button-selected':i == index}"
-                (click)="clickCategory(i)"
-                (mouseenter)="mouseEnter(i)"
-                [routerLink]="['movies-category',item.id]">{{item.name}}</button>
+            <button class="category-item-button" [ngClass]="{'category-item-button-selected':i == index}"
+                (click)="clickCategory(i)" (mouseenter)="mouseEnter(i)" [routerLink]="['movies-category',item.id]"
+                [ngStyle]="{'background-image': 'url(' + item.background + ')'}">{{item.name}}
+            </button>
         </div>
 
         <button class="category-carousel-button" (click)="nextCategory()">
