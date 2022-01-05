@@ -24,6 +24,7 @@ export class MoviesService {
       new MovieDetail("Filme 8", "https://upload.wikimedia.org/wikipedia/pt/thumb/a/a8/Up_p%C3%B4ster.jpg/243px-Up_p%C3%B4ster.jpg",new CategoryDetail(8,"Category 8", "catg-008")),
       new MovieDetail("Filme 9", "https://upload.wikimedia.org/wikipedia/pt/thumb/f/f1/Minions_2-_The_Rise_of_Gru_poster.jpeg/250px-Minions_2-_The_Rise_of_Gru_poster.jpeg",new CategoryDetail(1,"Category 1", "catg-001")),
       new MovieDetail("Filme 10", "https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg",new CategoryDetail(2,"Category 2", "catg-002")),
+      new MovieDetail("Filme 11", "https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg",new CategoryDetail(1,"Category 1", "catg-001")),
     ]
 
     return movies

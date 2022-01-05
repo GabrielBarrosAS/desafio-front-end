@@ -1,3 +1,88 @@
 .div-root{
     margin-top: 2%;
+    width: 100%;
+    min-height: 100%;
+}
+
+.text-and-exit{
+    color: gray;
+}
+
+.variable-text{
+    font-size: 20px;
+    color: white;
+}
+
+.icon-exit{
+    color: gray;
+    background-color: white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
+}
+
+
+.exit:active{
+    color: white;
+    background-color: gray;
+}
+
+.button-exit{
+    background-color: unset;
+    border: none;
+}
+
+.list-movies{
+    height: 260px;
+}
+
+.list-movies-item{
+    width: 300px;
+    height: 100%;
+}
+
+.info-movie{
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 3vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.info-movie-no-selected{
+    color: black;
+    background-color: white;
+}
+
+.info-movie-selected{
+    color: white;
+    background-color: red;
+}
+.img-movie-category{
+    width: 100%;
+    height: 100%;
+    border-radius: 0% 0% 8% 8%;
+}
+
+.carousel-button{
+    background-color: red;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 3vmin;
+    width: 3%;
+    height: 50%;
+    border: none;
+    opacity: 10%;
+}
+
+.carousel-button:active{
+    border: 1px solid white;
+}
+
+.carousel-button:hover{
+    transition: 0ms;
+    opacity: 100%;
 }

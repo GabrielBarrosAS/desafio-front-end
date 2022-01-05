@@ -1,9 +1,26 @@
 <div class="div-root">
-    <p>movies-category works!</p>
-    <button routerLink="">X</button>
-    <div *ngFor="let item of movieListCategory, let i = index">
-        {{id}}
-        {{item.name}}
+    <div class="d-flex justify-content-between align-items-center text-and-exit">
+        <span class="variable-text">Filmes e programas de TV contendo {{movieListCategory[0].category.name}}</span>
+        <button routerLink="" class="d-flex justify-content-center align-items-center button-exit">
+            <mat-icon class="icon-exit">cancel</mat-icon>
+        </button>
+    </div>
+    <div id ="a" class="d-flex justify-content-between align-items-center list-movies">
+        <button class="carousel-button" (click)="previousMovie()">
+            <mat-icon style="color: white;"> arrow_back </mat-icon>
+        </button>
+
+        <div *ngFor="let item of movieListCategory, let i = index" class="list-movies-item">
+            <div class="d-flex flex-column" style="height: 100%;">
+                <span class="d-flex justify-content-center info-movie" [ngClass]="{'info-movie-selected':i==index,'info-movie-no-selected':i!=index}">
+                    {{item.name}}
+                </span>
+                <img src="{{item.url}}" class="img-movie-category">
+            </div>
+        </div>
+
+        <button class="carousel-button" (click)="nextMovie()">
+            <mat-icon style="color: white;"> arrow_forward </mat-icon>
+        </button>
     </div>
 </div>
-
