@@ -1,3 +1,23 @@
+.dropdown-item{
+    font-weight: 500;
+    border: 1px solid white;
+}
+
+.dropdown-menu{
+    border: 2px solid white;
+    background-color: red;
+    padding: 0;
+}
+
+.dropdown-menu a{
+    color: white;
+    background-color: red;
+}
+
+.dropdown-menu a:hover{
+    background-color: #3d3d3d;
+}
+
 .btn-header{
     color: white !important;
 }
@@ -10,16 +30,6 @@
     outline: none !important;
     box-shadow: none;
  }
-
-.header{
-    background-color: #3d3d3d;
-    transition: 1500ms;
-    opacity: 30%;
-}
-
-.header:hover{
-    opacity: 100%;
-}
 
 .systemName{
     color: red;
