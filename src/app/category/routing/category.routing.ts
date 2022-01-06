@@ -5,7 +5,7 @@ import { MoviesCategoryComponent } from "../movies-category/movies-category.comp
 
 
 const CATEGORY_ROUTES: Routes = [
-    { path: "", component: CategoryListComponent },
+    //{ path: "", component: CategoryListComponent },
     { path: "movies-category/:id", component:MoviesCategoryComponent}
 ];
 

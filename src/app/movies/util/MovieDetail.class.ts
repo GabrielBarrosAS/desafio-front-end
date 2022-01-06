@@ -1,13 +1,13 @@
 import { CategoryDetail } from "src/app/category/util/CategoryDetail.class";
 
 export class MovieDetail{
-    name:string;
-    url:string;
+    tittle:string;
+    image:string;
     category: CategoryDetail
   
-    constructor(name: string,url:string,category:CategoryDetail){
-      this.name = name;
-      this.url = url;
+    constructor(tittle: string,image:string,category:CategoryDetail){
+      this.tittle = tittle;
+      this.image = image;
       this.category = category;
     }
   }

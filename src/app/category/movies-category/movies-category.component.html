@@ -13,9 +13,9 @@
         <div *ngFor="let item of movieListCategory, let i = index" class="list-movies-item">
             <div class="d-flex flex-column" style="height: 100%;">
                 <span class="d-flex justify-content-center info-movie" [ngClass]="{'info-movie-selected':i==index,'info-movie-no-selected':i!=index}">
-                    {{item.name}}
+                    {{item.tittle}}
                 </span>
-                <img src="{{item.url}}" class="img-movie-category">
+                <img src="{{item.image}}" class="img-movie-category">
             </div>
         </div>
 

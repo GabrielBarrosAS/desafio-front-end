@@ -12,38 +12,38 @@ export class MoviesComponent implements OnInit {
   moviesService: MoviesService
   moviesAll: MovieDetail[] = []
   movies: MovieDetail[] = []
-  index = 0
+  index = -1
 
-  constructor(_movieService: MoviesService) { 
+  constructor(private _movieService: MoviesService) {
     this.moviesService = _movieService
   }
 
   ngOnInit(): void {
-    this.moviesAll = this.moviesService.getMovies().slice()
-    this.movies = this.moviesAll.slice(0,8)
+    this.moviesService.getMovies().subscribe(dados => this.moviesAll = dados)
+    this.moviesService.getMovies().subscribe(dados => this.movies = dados.slice(0,8))
   }
 
-  mouseMovie(i:number){
+  mouseMovie(i: number) {
     this.index = i
   }
 
-  previousMovie(){
-    if(this.index > 0){
+  previousMovie() {
+    if (this.index > 0) {
       this.index--;
-    }else{
-      this.moviesAll.unshift(this.moviesAll[this.moviesAll.length-1])
+    } else {
+      this.moviesAll.unshift(this.moviesAll[this.moviesAll.length - 1])
       this.moviesAll.pop()
-      this.movies = this.moviesAll.slice(0,8)
+      this.movies = this.moviesAll.slice(0, 8)
     }
   }
 
-  nextMovie(){
-    if(this.index < 7){
+  nextMovie() {
+    if (this.index < 7) {
       this.index++;
-    }else{
+    } else {
       this.moviesAll.push(this.moviesAll[0])
       this.moviesAll = this.moviesAll.slice(1)
-      this.movies = this.moviesAll.slice(0,8)
+      this.movies = this.moviesAll.slice(0, 8)
     }
   }
 

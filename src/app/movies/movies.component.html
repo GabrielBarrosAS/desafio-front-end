@@ -3,8 +3,8 @@
         <div id="movie-item" *ngFor="let item of movies, let i = index"
             [ngClass]="{'movie-scroll-select': index == i,'movie-scroll':index !== i}">
             <div *ngIf="i < 8" class="d-flex flex-column" style="width: 100%;">
-                <span class="d-flex justify-content-center">{{item.name}}</span>
-                <img src="{{item.url}}" class="movie-image" (mouseenter)="mouseMovie(i)">
+                <span class="d-flex justify-content-center">{{item.tittle}}</span>
+                <img src="{{item.image}}" class="movie-image" (mouseenter)="mouseMovie(i)">
             </div>
         </div>
     </div>

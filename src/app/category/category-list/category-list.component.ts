@@ -9,22 +9,19 @@ import { CategoryDetail } from '../util/CategoryDetail.class';
 })
 export class CategoryListComponent implements OnInit {
 
-  categoryService: CategoryService
-
   categoryAll: CategoryDetail[] = []
   categoryToBeShow: CategoryDetail[] = []
   index = -1
 
-  constructor(_categoryService: CategoryService) {
-    this.categoryService = _categoryService
-  }
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.categoryAll = this.categoryService.getCategorys()
-    this.categoryToBeShow = this.categoryAll.slice(0, 5)
+    this.categoryService.getCategorys().subscribe(dados => this.categoryAll = dados)
+    this.categoryService.getCategorys().subscribe(dados => this.categoryToBeShow = dados.slice(0,5))
   }
 
   previousCategory() {
+    console.log(this.categoryToBeShow)
     if (this.index > 0) {
       this.index--;
     } else {
@@ -36,7 +33,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   nextCategory() {
-    if (this.index < this.categoryToBeShow.length-1) {
+    if (this.index < this.categoryToBeShow.length - 1) {
       this.index++;
     } else {
       this.categoryAll.push(this.categoryAll[0])
@@ -45,11 +42,11 @@ export class CategoryListComponent implements OnInit {
     }
   }
 
-  clickCategory(i:number){
-    this.categoryAll = this.categoryService.getCategorys()
+  clickCategory(i: number) {
+    //this.categoryAll = this.categoryService.getCategorys()
     this.index = i
   }
-  mouseEnter(i:number){
+  mouseEnter(i: number) {
     this.index = i
   }
 }
