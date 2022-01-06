@@ -7,10 +7,11 @@ import { NavbarModule } from './navbar/navbar.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MoviesModule } from './movies/movies.module';
 import { CategoryModule } from './category/category.module';
+import { FooterModule } from './footer/footer.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +19,8 @@ import { CategoryModule } from './category/category.module';
     BrowserAnimationsModule,
     NavbarModule,
     MoviesModule,
-    CategoryModule
+    CategoryModule,
+    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent],

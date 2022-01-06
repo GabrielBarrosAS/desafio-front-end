@@ -1,0 +1,27 @@
+.fixed-bottom{
+    height: 5%;
+    background-color: black;
+}
+.button-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 10%;
+    color: white;
+    background-color: unset;
+    border: unset;
+    margin: 0px 2% 0px 2%;
+}
+
+.button-footer:hover mat-icon{
+    color: black;
+}
+
+.button-footer:hover{
+    color: black;
+    background-color: red;
+}
+
+.button-footer:active{
+    border: 1px solid white;
+}
