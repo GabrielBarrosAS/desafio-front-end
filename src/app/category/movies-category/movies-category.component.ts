@@ -22,7 +22,7 @@ export class MoviesCategoryComponent implements OnInit {
     this._activatedroute.paramMap.subscribe(params => {
       this.id = Number(params.get('id'));
       this.movieListCategory = this._movieService.getMoviesCategory(this.id)
-      this.movieShow = this.movieListCategory.slice(0, 3)
+      this.movieShow = this._movieService.getMoviesCategory(this.id).slice(0,3)
     });
   }
 
