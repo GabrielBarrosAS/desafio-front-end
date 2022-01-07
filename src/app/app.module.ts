@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { HomeModule } from './home/home.module';
 import { FooterModule } from './footer/footer.module';
+import { MatIconModule } from '@angular/material/icon';
+import { AuthService } from './login/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { FooterModule } from './footer/footer.module';
     HttpClientModule,
     BrowserAnimationsModule,
     HomeModule,
-    FooterModule
+    FooterModule,
+    MatIconModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

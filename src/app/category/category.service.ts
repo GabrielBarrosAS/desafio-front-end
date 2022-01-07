@@ -30,7 +30,7 @@ export class CategoryService {
 
     return this.http.get<CategoryDetail[]>(this.API).pipe(
       tap(res => {
-        console.log(res)
+        this.categorys = res
       })
     )
   }
