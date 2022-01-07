@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -10,7 +11,8 @@ import { FooterComponent } from './footer.component';
   declarations: [FooterComponent],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    AppRoutingModule
   ],
   exports: [FooterComponent]
 })
