@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MoviesService } from './movies.service';
+import { MoviesService } from '../../services/movies.service';
 import { MoviesComponent } from './movies.component';
 
 import { MatIconModule } from '@angular/material/icon';

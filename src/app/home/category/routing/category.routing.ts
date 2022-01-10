@@ -1,6 +1,5 @@
 import { ModuleWithProviders } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { CategoryListComponent } from "../category-list/category-list.component";
 import { CategoryComponent } from "../category.component";
 import { MoviesCategoryComponent } from "../movies-category/movies-category.component";
 

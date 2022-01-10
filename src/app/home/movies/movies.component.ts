@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from './movies.service';
-import { MovieDetail } from './util/MovieDetail.class';
+import { MoviesService } from '../../services/movies.service';
+import { MovieDetail } from '../../util/dtos/MovieDetail.class';
 
 @Component({
   selector: 'app-movies',
@@ -20,7 +20,7 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit(): void {
     this.moviesService.getMovies().subscribe(dados => this.moviesAll = dados)
-    this.moviesService.getMovies().subscribe(dados => this.movies = dados.slice(0,8))
+    this.moviesService.getMovies().subscribe(dados => this.movies = dados.slice(0, 8))
   }
 
   mouseMovie(i: number) {

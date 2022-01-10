@@ -1,6 +1,6 @@
 <nav id="header" class="navbar d-flex justify-content-between header">
     <div class="nav">
-        <li class="nav-item dropdown" dropdown>
+        <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
             <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Movies</button>
             <div class="dropdown-menu" *dropdownMenu>
                 <a class="dropdown-item" href="#">Criar Filme</a>
@@ -9,13 +9,22 @@
                 <a class="dropdown-item" href="#">Listar Filmes</a>
             </div>
         </li>
-        <li class="nav-item dropdown" dropdown>
+        <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
             <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Category</button>
             <div class="dropdown-menu" *dropdownMenu >
                 <a class="dropdown-item" href="#">Criar Categoria</a>
                 <a class="dropdown-item" href="#">Atualizar Categoria</a>
                 <a class="dropdown-item" href="#">Deletar Categoria</a>
                 <a class="dropdown-item" href="#">Listar Categoria</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown" dropdown *ngIf="userAutenticatedAdmin">
+            <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Users</button>
+            <div class="dropdown-menu" *dropdownMenu >
+                <a class="dropdown-item" href="#">Criar Usuário</a>
+                <a class="dropdown-item" href="#">Atualizar Usuário</a>
+                <a class="dropdown-item" href="#">Deletar Usuário</a>
+                <a class="dropdown-item" href="#">Listar Usuário</a>
             </div>
         </li>
     </div>

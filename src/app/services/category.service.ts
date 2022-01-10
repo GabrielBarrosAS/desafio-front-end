@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { CategoryDetail } from './util/CategoryDetail.class';
+import { CategoryDetail } from '../util/dtos/CategoryDetail.class';
 
 @Injectable({
   providedIn: 'root'

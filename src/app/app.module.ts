@@ -7,25 +7,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomeModule } from './home/home.module';
-import { FooterModule } from './footer/footer.module';
 import { MatIconModule } from '@angular/material/icon';
-import { AuthService } from './login/auth.service';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarModule } from './navbar/navbar.module';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NavbarModule,
     HomeModule,
-    FooterModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

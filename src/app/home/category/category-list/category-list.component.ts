@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../category.service';
-import { CategoryDetail } from '../util/CategoryDetail.class';
+import { CategoryService } from '../../../services/category.service';
+import { CategoryDetail } from '../../../util/dtos/CategoryDetail.class';
 
 @Component({
   selector: 'app-category-list',
@@ -17,11 +17,10 @@ export class CategoryListComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.getCategorys().subscribe(dados => this.categoryAll = dados)
-    this.categoryService.getCategorys().subscribe(dados => this.categoryToBeShow = dados.slice(0,5))
+    this.categoryService.getCategorys().subscribe(dados => this.categoryToBeShow = dados.slice(0, 5))
   }
 
   previousCategory() {
-    console.log(this.categoryToBeShow)
     if (this.index > 0) {
       this.index--;
     } else {

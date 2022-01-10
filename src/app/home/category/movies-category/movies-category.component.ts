@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MoviesService } from 'src/app/movies/movies.service';
-import { MovieDetail } from 'src/app/movies/util/MovieDetail.class';
+import { MoviesService } from 'src/app/services/movies.service';
+import { MovieDetail } from 'src/app/util/dtos/MovieDetail.class';
 
 @Component({
   selector: 'app-movies-category',

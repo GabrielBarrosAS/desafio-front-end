@@ -2,7 +2,7 @@
     <span class="variable-text">Filmes e programas de TV contendo...</span>
     <div class="d-flex justify-content-between div-content">
         <button class="category-carousel-button" (click)="previousCategory()">
-            <mat-icon style="color: white;"> arrow_back </mat-icon>
+            <mat-icon> arrow_back </mat-icon>
         </button>
 
         <div *ngFor="let item of categoryToBeShow,let i = index" class="categories-list">
@@ -13,7 +13,7 @@
         </div>
 
         <button class="category-carousel-button" (click)="nextCategory()">
-            <mat-icon style="color: white;"> arrow_forward </mat-icon>
+            <mat-icon> arrow_forward </mat-icon>
         </button>
     </div>
 </div>
