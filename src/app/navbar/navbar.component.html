@@ -1,4 +1,4 @@
-<nav id="header" class="navbar d-flex justify-content-between header">
+<nav id="header" class="navbar d-flex justify-content-between">
     <div class="nav">
         <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
             <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Movies</button>
@@ -28,18 +28,16 @@
             </div>
         </li>
     </div>
-    <div class="nav">
+    <div class="nav d-flex justify-content-center">
         <span class="systemName" id="leadTittle">Lead</span>
         <span class="systemName" id="movieTittle">Movie</span>
     </div>
     <div class="nav">
-            <div class="input-group d-flex align-items-center align-self-center">
-                    <div class="form-outline">
-                    <input type="search" id="form1" class="form-control"/>
-                    </div>
-                <button type="button" class="btn d-flex align-items-center btn-header">
-                    <mat-icon  style="color: white;"> search </mat-icon >
-                </button>
-            </div>
+        <div class="input-group d-flex justify-content-end">
+            <input type="search" id="form1" placeholder="Search"/>
+            <button type="button" class="btn d-flex align-items-center btn-header" type="submit">
+                <mat-icon> search </mat-icon >
+            </button>
+        </div>
     </div>
 </nav>          
