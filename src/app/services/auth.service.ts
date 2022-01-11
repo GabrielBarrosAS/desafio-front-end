@@ -18,9 +18,7 @@ export class AuthService {
   userAdminEmitter = new EventEmitter<boolean>();
   userEmitter = new EventEmitter<boolean>();
 
-  constructor(private router: Router) { 
-    console.log("oi")
-  }
+  constructor(private router: Router) {}
 
   authenticate(user: User){
     this.userAdminEmitter.emit(false);
@@ -34,16 +32,12 @@ export class AuthService {
     })
 
     if (this.userIsAutenticated) {
-      console.log("Autenticado")
       if (this.userAutenticatedObject.roles?.includes("ROLE_ADMIN")) {
-        console.log("Autenticado admin")
         this.userAdminEmitter.emit(true);
       }else{
-        console.log("Autenticado normal")
         this.userEmitter.emit(true);
       }
     } else {
-      console.log("False")
       this.userAdminEmitter.emit(false);
       this.userEmitter.emit(false);
     }

@@ -11,6 +11,7 @@ import { MoviesCategoryComponent } from './movies-category/movies-category.compo
 import { CreateCategoryComponent } from './crud/create-category/create-category.component';
 import { DeleteCategoryComponent } from './crud/delete-category/delete-category.component';
 import { UpdateCategoryComponent } from './crud/update-category/update-category.component';
+import { LanguageService } from 'src/app/services/language.service';
 
 @NgModule({
   declarations: [CategoryComponent, MoviesCategoryComponent, CategoryListComponent, CreateCategoryComponent, DeleteCategoryComponent, UpdateCategoryComponent],
@@ -19,7 +20,7 @@ import { UpdateCategoryComponent } from './crud/update-category/update-category.
     MatIconModule,
     RoutingCategory
   ],
-  providers: [CategoryService, MoviesService,],
+  providers: [CategoryService, MoviesService,LanguageService],
   exports: [CategoryComponent]
 })
 export class CategoryModule { }
