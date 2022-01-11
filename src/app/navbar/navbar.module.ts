@@ -7,6 +7,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { NavbarComponent } from './navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { RoutingCategory } from '../home/category/routing/category.routing';
+import { RoutingMovies } from '../home/movies/routing/movies.routing';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -16,7 +18,9 @@ import { MatIconModule } from '@angular/material/icon';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    MatIconModule
+    MatIconModule,
+    RoutingCategory,
+    RoutingMovies
   ],
   exports: [
     BsDropdownModule,

@@ -1,3 +1,7 @@
+#header{
+    border: 1px solid red;
+}
+
 .dropdown-item{
     font-weight: 500;
     border: 1px solid white;

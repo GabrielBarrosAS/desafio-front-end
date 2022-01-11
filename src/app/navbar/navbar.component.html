@@ -3,19 +3,19 @@
         <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
             <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Movies</button>
             <div class="dropdown-menu" *dropdownMenu>
-                <a class="dropdown-item" href="#">Criar Filme</a>
-                <a class="dropdown-item" href="#">Atualizar Filme</a>
-                <a class="dropdown-item" href="#">Deletar Filve</a>
-                <a class="dropdown-item" href="#">Listar Filmes</a>
+                <a class="dropdown-item" routerLink="create-movie">Criar Filme</a>
+                <a class="dropdown-item" routerLink="update-movie">Atualizar Filme</a>
+                <a class="dropdown-item" routerLink="delete-movie">Deletar Filve</a>
+                <a class="dropdown-item" routerLink="">Listar Filmes</a>
             </div>
         </li>
         <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
             <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Category</button>
             <div class="dropdown-menu" *dropdownMenu >
-                <a class="dropdown-item" href="#">Criar Categoria</a>
-                <a class="dropdown-item" href="#">Atualizar Categoria</a>
-                <a class="dropdown-item" href="#">Deletar Categoria</a>
-                <a class="dropdown-item" href="#">Listar Categoria</a>
+                <a class="dropdown-item" routerLink="create-category">Criar Categoria</a>
+                <a class="dropdown-item" routerLink="update-category">Atualizar Categoria</a>
+                <a class="dropdown-item" routerLink="delete-category">Deletar Categoria</a>
+                <a class="dropdown-item" routerLink="">Listar Categoria</a>
             </div>
         </li>
         <li class="nav-item dropdown" dropdown *ngIf="userAutenticatedAdmin">
