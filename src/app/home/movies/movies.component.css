@@ -13,7 +13,8 @@
     color: white;
     background-color: red;
     border: unset;
-    transform: scale(1) translate(0px,5%);
+    transform: translate(0px,5%);
+    z-index: -1;
 }
 
 .movie-scroll{
