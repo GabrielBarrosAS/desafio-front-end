@@ -12,13 +12,15 @@ import { CreateCategoryComponent } from './crud/create-category/create-category.
 import { DeleteCategoryComponent } from './crud/delete-category/delete-category.component';
 import { UpdateCategoryComponent } from './crud/update-category/update-category.component';
 import { LanguageService } from 'src/app/services/language.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CategoryComponent, MoviesCategoryComponent, CategoryListComponent, CreateCategoryComponent, DeleteCategoryComponent, UpdateCategoryComponent],
   imports: [
     CommonModule,
     MatIconModule,
-    RoutingCategory
+    RoutingCategory,
+    FormsModule,
   ],
   providers: [CategoryService, MoviesService,LanguageService],
   exports: [CategoryComponent]

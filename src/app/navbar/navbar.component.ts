@@ -15,11 +15,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.userAdminEmitter.subscribe(
-      show => { this.userAutenticatedAdmin = show; console.log(show) }
+      show => { this.userAutenticatedAdmin = show }
     );
 
     this.authService.userEmitter.subscribe(
-      show => { this.userAutenticated = show; console.log(show) }
+      show => { this.userAutenticated = show; }
     );
   }
 

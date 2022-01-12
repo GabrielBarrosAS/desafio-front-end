@@ -1,7 +1,7 @@
 export class User {
-    email: string | undefined
-    senha: string | undefined
-    roles: string[] | undefined
+    email: string
+    senha: string
+    roles: string[]
     constructor(email:string = "",senha:string = "",roles: string[] = []){
         this.email = email
         this.senha = senha

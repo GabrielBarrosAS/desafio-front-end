@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { LanguageService } from 'src/app/services/language.service';
+import { CategoryDetail } from 'src/app/util/dtos/CategoryDetail.class';
 import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
 
 @Component({
@@ -11,8 +12,10 @@ import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
 export class CreateCategoryComponent implements OnInit {
 
   languageAll: LanguageDetail[] = []
+  categoryForm: CategoryDetail = new CategoryDetail()
+  index = 0
 
-  constructor(private languageService:LanguageService,private categoryService:CategoryService) { }
+  constructor(private languageService: LanguageService, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
 
@@ -20,8 +23,17 @@ export class CreateCategoryComponent implements OnInit {
 
   }
 
-  createCategory(){
-    this.categoryService.create()
+  createCategory() {
+    this.categoryService.create(this.categoryForm).subscribe({
+      next: (v) => alert(v),
+      error: (e) => alert(e),
+      complete: () => console.info('complete') 
+  })
+  }
+
+  languageSelected(i:Event){
+    var a = i.target as HTMLInputElement
+    this.index = Number(a.value)
   }
 
 }

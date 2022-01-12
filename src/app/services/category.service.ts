@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, take, tap } from 'rxjs';
 import { CategoryDetail } from '../util/dtos/CategoryDetail.class';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class CategoryService {
 
   private categorys: CategoryDetail[] = []
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   getCategorys(): Observable<CategoryDetail[]> {
 
@@ -23,11 +24,21 @@ export class CategoryService {
     )
   }
 
-  create(){
-    console.log("Criar categoria no banco")
+  create(objPost: CategoryDetail): Observable<CategoryDetail> {
+
+    let authorizationData = 'Basic ' + btoa(this.authService.getUsername() + ':' + this.authService.getPassword());
+
+    const headerOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': authorizationData
+      })
+    };
+    
+    return this.http.post<CategoryDetail>(this.API,objPost, headerOptions).pipe(take(1))
   }
 
-  update(){
+  update() {
     console.log("Atualizar categoria")
   }
 

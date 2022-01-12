@@ -2,12 +2,12 @@ export class CategoryDetail {
     id: number;
     name: string;
     tag: string;
-    background: string;
+    languageID: number;
 
-    constructor(id: number, name: string, tag: string, background: string) {
+    constructor(id: number = 0, name: string = "", tag: string = "", languageID: number = 0) {
         this.id = id;
         this.name = name;
         this.tag = tag;
-        this.background = background;
+        this.languageID = languageID;
     }
 }

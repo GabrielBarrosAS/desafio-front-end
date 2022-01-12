@@ -18,9 +18,17 @@ export class AuthService {
   userAdminEmitter = new EventEmitter<boolean>();
   userEmitter = new EventEmitter<boolean>();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  authenticate(user: User){
+  getUsername(): string {
+    return this.userAutenticatedObject.email
+  }
+
+  getPassword(): string {
+    return this.userAutenticatedObject.senha
+  }
+
+  authenticate(user: User) {
     this.userAdminEmitter.emit(false);
     this.userEmitter.emit(false);
     this.userIsAutenticated = false
@@ -34,7 +42,7 @@ export class AuthService {
     if (this.userIsAutenticated) {
       if (this.userAutenticatedObject.roles?.includes("ROLE_ADMIN")) {
         this.userAdminEmitter.emit(true);
-      }else{
+      } else {
         this.userEmitter.emit(true);
       }
     } else {
