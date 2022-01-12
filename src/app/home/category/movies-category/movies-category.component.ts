@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
 import { MoviesService } from 'src/app/services/movies.service';
+import { CategoryDetail } from 'src/app/util/dtos/CategoryDetail.class';
 import { MovieDetail } from 'src/app/util/dtos/MovieDetail.class';
 
 @Component({
@@ -13,9 +15,11 @@ export class MoviesCategoryComponent implements OnInit {
   id = 0
   movieListCategory: MovieDetail[] = []
   movieShow: MovieDetail[] = []
+  categoryAll: CategoryDetail[] = []
   index = 0
 
-  constructor(private _activatedroute: ActivatedRoute, private _movieService: MoviesService) {
+  constructor(private _activatedroute: ActivatedRoute, private _movieService: MoviesService,private categoryService:CategoryService) {
+    this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
   }
 
   ngOnInit(): void {
@@ -23,6 +27,7 @@ export class MoviesCategoryComponent implements OnInit {
       this.id = Number(params.get('id'));
       this.movieListCategory = this._movieService.getMoviesCategory(this.id)
       this.movieShow = this._movieService.getMoviesCategory(this.id).slice(0,3)
+      console.log(this.id)
     });
   }
 

@@ -27,8 +27,8 @@ export class MoviesService {
     return this.movies.filter(el => el.category.id == categoryId)
   }
 
-  create(){
-    console.log("Criar filme")
+  create(objPost:MovieDetail){
+    console.log(objPost)
   }
 
   update(){

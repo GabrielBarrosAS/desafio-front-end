@@ -5,13 +5,25 @@ export class MovieDetail {
   image: string;
   synopsis: string;
   duration: number;
-  category: CategoryDetail
-
-  constructor(tittle: string, image: string, category: CategoryDetail,synopsis:string,duration:number) {
+  languageID: number;
+  categoryID:number;
+  launchData:string;
+  category:CategoryDetail;
+  constructor(tittle: string="", 
+              image: string="",
+              synopsis:string="",
+              duration:number=0,
+              categoryID: number=0,
+              languageID: number=0,
+              launchData:string="",
+              category:CategoryDetail=new CategoryDetail()) {
     this.tittle = tittle;
     this.image = image;
-    this.category = category;
     this.synopsis = synopsis;
     this.duration = duration;
+    this.categoryID = categoryID;
+    this.languageID = languageID;
+    this.launchData = launchData;
+    this.category = category;
   }
 }

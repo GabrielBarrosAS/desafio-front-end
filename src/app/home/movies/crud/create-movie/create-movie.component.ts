@@ -4,6 +4,7 @@ import { LanguageService } from 'src/app/services/language.service';
 import { MoviesService } from 'src/app/services/movies.service';
 import { CategoryDetail } from 'src/app/util/dtos/CategoryDetail.class';
 import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
+import { MovieDetail } from 'src/app/util/dtos/MovieDetail.class';
 
 @Component({
   selector: 'app-create-movie',
@@ -13,6 +14,7 @@ import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
 export class CreateMovieComponent implements OnInit {
   languageAll: LanguageDetail[] = []
   categoryAll: CategoryDetail[] = []
+  newMovie: MovieDetail = new MovieDetail()
 
   constructor(private languageService:LanguageService,private categoryService: CategoryService,private movieService:MoviesService) { }
 
@@ -24,6 +26,6 @@ export class CreateMovieComponent implements OnInit {
   }
 
   createMovie(){
-    this.movieService.create()
+    this.movieService.create(this.newMovie)
   }
 }

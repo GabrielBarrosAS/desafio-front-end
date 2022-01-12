@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoryComponent } from './category.component';
 import { CategoryService } from '../../services/category.service';
 
 import { MoviesService } from '../../services/movies.service';
@@ -13,9 +12,10 @@ import { DeleteCategoryComponent } from './crud/delete-category/delete-category.
 import { UpdateCategoryComponent } from './crud/update-category/update-category.component';
 import { LanguageService } from 'src/app/services/language.service';
 import { FormsModule } from '@angular/forms';
+import { CategoryComponent } from './category.component';
 
 @NgModule({
-  declarations: [CategoryComponent, MoviesCategoryComponent, CategoryListComponent, CreateCategoryComponent, DeleteCategoryComponent, UpdateCategoryComponent],
+  declarations: [CategoryComponent,MoviesCategoryComponent, CategoryListComponent, CreateCategoryComponent, DeleteCategoryComponent, UpdateCategoryComponent],
   imports: [
     CommonModule,
     MatIconModule,

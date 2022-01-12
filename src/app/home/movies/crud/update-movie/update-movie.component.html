@@ -31,7 +31,7 @@
       <div class="form-group">
           <label for="inputState">Select Language Movie</label>
           <select id="inputState" class="form-control">
-            <select>{{movieAll[index].category}}</select>
+            <select>{{movieAll[index].categoryID}</select>
             <option *ngFor="let item of languageAll, let i = index">{{item.name}}({{item.tag}})</option>
           </select>
       </div>
