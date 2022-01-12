@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { MovieDetail } from '../util/dtos/MovieDetail.class';
+import { Observable, take, tap } from 'rxjs';
+import { MovieDetail, MoviePostDto } from '../util/dtos/MovieDtos';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class MoviesService {
 
   private movies:MovieDetail[] = []
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private authService:AuthService) { }
 
   getMovies(): Observable<MovieDetail[]>{
 
@@ -27,8 +28,19 @@ export class MoviesService {
     return this.movies.filter(el => el.category.id == categoryId)
   }
 
-  create(objPost:MovieDetail){
-    console.log(objPost)
+  create(objPost:MoviePostDto) : Observable<MovieDetail>{
+
+    let authorizationData = 'Basic ' + btoa(this.authService.getUsername() + ':' + this.authService.getPassword());
+
+    const headerOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': authorizationData
+      })
+    };
+    
+    return this.http.post<MovieDetail>(this.API,objPost, headerOptions).pipe(take(1))
+
   }
 
   update(){

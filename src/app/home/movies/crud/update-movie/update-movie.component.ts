@@ -4,7 +4,7 @@ import { LanguageService } from 'src/app/services/language.service';
 import { MoviesService } from 'src/app/services/movies.service';
 import { CategoryDetail } from 'src/app/util/dtos/CategoryDetail.class';
 import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
-import { MovieDetail } from 'src/app/util/dtos/MovieDetail.class';
+import { MovieDetail } from 'src/app/util/dtos/MovieDtos';
 
 @Component({
   selector: 'app-update-movie',

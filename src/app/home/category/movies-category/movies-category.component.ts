@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { MoviesService } from 'src/app/services/movies.service';
 import { CategoryDetail } from 'src/app/util/dtos/CategoryDetail.class';
-import { MovieDetail } from 'src/app/util/dtos/MovieDetail.class';
+import { MovieDetail } from 'src/app/util/dtos/MovieDtos';
 
 @Component({
   selector: 'app-movies-category',
