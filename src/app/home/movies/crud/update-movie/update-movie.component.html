@@ -1,50 +1,50 @@
 <div class="div-root">
-    <div class="form-group drop-category">
-        <label for="inputState">SELECT CATEGORY TO UPDATE</label>
-        <select id="inputState" class="form-control" (change)="movieUpdateSelected($event)">
-            <option *ngFor="let item of movieAll, let i = index" [value]="i">
-                {{item.tittle}}
-            </option> 
-        </select>
-    </div>
+  <div class="form-group drop-category">
+    <label for="inputState">SELECT MOVIE TO UPDATE</label>
+    <select id="inputState" class="form-control" (change)="movieUpdateSelected($event)">
+      <option [value]="-1">Escolha um filme para atualizar</option>
+      <option *ngFor="let item of movieAll, let i = index" [value]="i">
+        {{item.tittle}}
+      </option>
+    </select>
+  </div>
+  <div *ngIf="index != -1" class="d-flex justify-content-center">
     <form class="needs-validation">
       <div class="form-group">
         <label>Tittle Movie</label>
-        <input type="text" class="form-control" placeholder="name"  value="{{movieAll[index].tittle}}" required>
+        <input [(ngModel)]="moviePut.tittle" name="tittle" type="text" class="form-control" required>
       </div>
       <div class="form-group">
         <label>Synopsis Movie</label>
-        <input type="text" class="form-control" placeholder="synopsis" value="{{movieAll[index].synopsis}}" required>
+        <input [(ngModel)]="moviePut.synopsis" name="synopsis" type="text" class="form-control" required>
       </div>
       <div class="form-group">
         <label>Image Movie</label>
-        <input type="text" class="form-control" placeholder="image" value="{{movieAll[index].image}}" required>
-      </div>
-      <div class="form-group">
-        <label>LaunchData Movie</label>
-        <input type="date" class="form-control" required>
+        <input [(ngModel)]="moviePut.image" name="image" type="text" class="form-control" required>
       </div>
       <div class="form-group">
         <label>Duration Movie</label>
-        <input type="number" class="form-control" placeholder="duration" value="{{movieAll[index].duration}}" required>
+        <input [(ngModel)]="moviePut.duration" name="duration" type="number" class="form-control" required>
       </div>
       <div class="form-group">
-          <label for="inputState">Select Language Movie</label>
-          <select id="inputState" class="form-control">
-            <select>{{movieAll[index].categoryID}</select>
-            <option *ngFor="let item of languageAll, let i = index">{{item.name}}({{item.tag}})</option>
-          </select>
+        <label>LaunchData Movie</label>
+        <input [(ngModel)]="moviePut.launchData" name="launchData" type="date" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="inputState">Select Language Movie</label>
+        <select [(ngModel)]="moviePut.languageID" name="languageID" id="inputState" class="form-control">
+          <option *ngFor="let item of languageAll, let i = index" [value]="item.id">{{item.name}}({{item.tag}})</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="inputState">Select Category Movie</label>
-        <select id="inputState" class="form-control">
-            <select>{{languageAll[index].name}</select>
-          <option *ngFor="let item of categoryAll, let i = index">{{item.name}}</option>
+        <select [(ngModel)]="moviePut.categoryID" name="categoryID" id="inputState" class="form-control">
+          <option *ngFor="let item of categoryAll, let i = index" [value]="item.id">{{item.name}}</option>
         </select>
-    </div>
-    <div class="form-group">
+      </div>
+      <div class="form-group">
         <button type="submit" class="btn-submit" (click)="updateMovie()">Create <mat-icon> send </mat-icon></button>
-    </div>
+      </div>
     </form>
   </div>
-  
+</div>

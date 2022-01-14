@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, take, tap } from 'rxjs';
-import { MovieDetail, MoviePostDto } from '../util/dtos/MovieDtos';
+import { MovieDetail, MoviePostDto, MoviePutDto } from '../util/dtos/MovieDtos';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -11,11 +11,11 @@ export class MoviesService {
 
   private readonly API = "http://localhost:8080/movies"
 
-  private movies:MovieDetail[] = []
+  private movies: MovieDetail[] = []
 
-  constructor(private http: HttpClient,private authService:AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
-  getMovies(): Observable<MovieDetail[]>{
+  getMovies(): Observable<MovieDetail[]> {
 
     return this.http.get<MovieDetail[]>(this.API).pipe(
       tap(res => {
@@ -24,12 +24,11 @@ export class MoviesService {
     );
   }
 
-  getMoviesCategory(categoryId: number) : MovieDetail[]{
+  getMoviesCategory(categoryId: number): MovieDetail[] {
     return this.movies.filter(el => el.category.id == categoryId)
   }
 
-  create(objPost:MoviePostDto) : Observable<MovieDetail>{
-
+  headerOptions(){
     let authorizationData = 'Basic ' + btoa(this.authService.getUsername() + ':' + this.authService.getPassword());
 
     const headerOptions = {
@@ -38,13 +37,19 @@ export class MoviesService {
         'Authorization': authorizationData
       })
     };
-    
-    return this.http.post<MovieDetail>(this.API,objPost, headerOptions).pipe(take(1))
+    return headerOptions
+  }
+
+  create(objPost: MoviePostDto): Observable<MovieDetail> {
+
+    return this.http.post<MovieDetail>(this.API, objPost, this.headerOptions()).pipe(take(1))
 
   }
 
-  update(){
-    console.log("Atualizar filme")
+  update(moviePut: MoviePutDto) {
+
+    return this.http.put<MovieDetail>(this.API, moviePut, this.headerOptions()).pipe(take(1))
+
   }
 
 }

@@ -27,7 +27,7 @@ export class MoviesCategoryComponent implements OnInit {
       this.id = Number(params.get('id'));
       this.movieListCategory = this._movieService.getMoviesCategory(this.id)
       this.movieShow = this._movieService.getMoviesCategory(this.id).slice(0,3)
-      console.log(this.id)
+      console.log(this.categoryAll)
     });
   }
 
