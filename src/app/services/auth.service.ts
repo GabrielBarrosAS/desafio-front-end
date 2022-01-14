@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
 import { User } from '../util/dtos/User.class';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,18 @@ export class AuthService {
 
   getPassword(): string {
     return this.userAutenticatedObject.senha
+  }
+
+  headerOptions(){
+    let authorizationData = 'Basic ' + btoa(this.getUsername() + ':' + this.getPassword());
+
+    const headerOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': authorizationData
+      })
+    };
+    return headerOptions
   }
 
   authenticate(user: User) {

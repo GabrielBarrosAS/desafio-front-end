@@ -1,4 +1,4 @@
-import { CategoryDetail } from "./CategoryDetail.class";
+import { CategoryDetail } from "./CategoryDtos";
 import { LanguageDetail } from "./LanguageDetail.class";
 
 class MovieDetail {

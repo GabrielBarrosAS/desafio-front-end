@@ -28,27 +28,15 @@ export class MoviesService {
     return this.movies.filter(el => el.category.id == categoryId)
   }
 
-  headerOptions(){
-    let authorizationData = 'Basic ' + btoa(this.authService.getUsername() + ':' + this.authService.getPassword());
-
-    const headerOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': authorizationData
-      })
-    };
-    return headerOptions
-  }
-
   create(objPost: MoviePostDto): Observable<MovieDetail> {
 
-    return this.http.post<MovieDetail>(this.API, objPost, this.headerOptions()).pipe(take(1))
+    return this.http.post<MovieDetail>(this.API, objPost, this.authService.headerOptions()).pipe(take(1))
 
   }
 
   update(moviePut: MoviePutDto) {
 
-    return this.http.put<MovieDetail>(this.API, moviePut, this.headerOptions()).pipe(take(1))
+    return this.http.put<MovieDetail>(this.API, moviePut, this.authService.headerOptions()).pipe(take(1))
 
   }
 

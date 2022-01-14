@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { LanguageService } from 'src/app/services/language.service';
 import { MoviesService } from 'src/app/services/movies.service';
-import { CategoryDetail } from 'src/app/util/dtos/CategoryDetail.class';
+import { CategoryDetail } from 'src/app/util/dtos/CategoryDtos';
 import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
 import { MoviePostDto } from 'src/app/util/dtos/MovieDtos';
 

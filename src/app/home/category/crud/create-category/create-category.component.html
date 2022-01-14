@@ -12,7 +12,8 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Select Language Category</label>
-      <select [(ngModel)]="categoryForm.languageID" name="categoryLanguageId" (change)="languageSelected($event)" id="inputState" class="form-control">
+      <select [(ngModel)]="categoryForm.languageID" name="categoryLanguageId" (change)="languageSelected($event)"
+        id="inputState" class="form-control">
         <option *ngFor="let item of languageAll, let i = index" [value]="languageAll[i].id">
           {{item.name}}({{item.tag}})
         </option>
