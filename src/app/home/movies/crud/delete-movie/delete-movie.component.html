@@ -1,1 +1,21 @@
-<p>delete-movie works!</p>
+<div class="div-root d-flex justify-content-around flex-wrap">
+    <div *ngFor="let item of movieAll,let i = index" class="d-flex justify-content-around align-items-center" style="width: 50%;">
+        <div class="d-flex justify-content-center align-items-center div-data-movie">
+            <div class="d-flex align-self-stretch div-img-movie">
+                <img src="{{item.image}}" class="img-movie">
+            </div>
+            <div class="d-flex flex-column align-self-stretch justify-content-around div-movie-detail">
+                <div class="movie-detail">Tittle: {{item.tittle}}</div>
+                <div class="movie-detail">Synopsis: {{item.synopsis}}</div>
+                <div class="movie-detail">Launch Data: {{item.launchData}}</div>
+                <div class="movie-detail">Category: {{item.category.name}}</div>
+                <div class="movie-detail">language: {{item.language.name}}</div>
+                <div class="movie-detail">Duration: {{item.duration}}</div>
+            </div>
+        </div>
+        <div class="div-buttons">
+            <button>Atualizar</button>
+            <button>Deletar</button>
+        </div>
+    </div>
+</div>

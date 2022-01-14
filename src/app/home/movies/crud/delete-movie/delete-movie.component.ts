@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from 'src/app/services/movies.service';
+import { MovieDetail } from 'src/app/util/dtos/MovieDtos';
 
 @Component({
   selector: 'app-delete-movie',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteMovieComponent implements OnInit {
 
-  constructor() { }
+  constructor(private movieService: MoviesService) { }
+  movieAll: MovieDetail[] = []
 
   ngOnInit(): void {
+    this.movieService.getMovies().subscribe(data => this.movieAll = data)
   }
 
 }
