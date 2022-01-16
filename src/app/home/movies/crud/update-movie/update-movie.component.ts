@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { LanguageService } from 'src/app/services/language.service';
 import { MoviesService } from 'src/app/services/movies.service';
@@ -16,41 +16,60 @@ export class UpdateMovieComponent implements OnInit {
   languageAll: LanguageDetail[] = []
   categoryAll: CategoryDetail[] = []
   movieAll: MovieDetail[] = []
-  index = -1
+  @Input() index: number = 0
 
   moviePut: MoviePutDto = new MoviePutDto()
 
-  constructor(private languageService: LanguageService, private categoryService: CategoryService, private movieService: MoviesService) { }
+  constructor(private languageService: LanguageService, private categoryService: CategoryService, private movieService: MoviesService) {
+
+  }
 
   ngOnInit(): void {
 
     this.languageService.getLanguages().subscribe(data => this.languageAll = data)
     this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
-    this.movieService.getMovies().subscribe(data => this.movieAll = data)
-    this.index = -1
+    this.movieService.getMovies().subscribe(data => {
+      this.movieAll = data
+      this.updatePropertiesPutObject(this.movieAll[this.index])
+    })
+  }
+
+  ngOnChanges() : void{
+    this.movieService.getMovies().subscribe(data => {
+      this.movieAll = data
+      this.updatePropertiesPutObject(this.movieAll[this.index])
+    })
   }
 
   movieUpdateSelected(i: Event) {
     var a = i.target as HTMLInputElement
     this.index = Number(a.value)
 
-    
-    this.moviePut.id = this.movieAll[this.index].id
-    this.moviePut.tittle = this.movieAll[this.index].tittle
-    this.moviePut.synopsis = this.movieAll[this.index].synopsis
-    this.moviePut.image = this.movieAll[this.index].image
-    this.moviePut.duration = this.movieAll[this.index].duration
-    this.moviePut.launchData = this.movieAll[this.index].launchData
-    this.moviePut.categoryID = this.movieAll[this.index].category.id
-    this.moviePut.languageID = this.movieAll[this.index].language.id
+    this.updatePropertiesPutObject(this.movieAll[this.index])
   }
 
   updateMovie() {
     this.movieService.update(this.moviePut).subscribe({
-      next: (v) => alert(v),
-      error: (e) => alert(e),
-      complete: () => console.info('complete') 
+      next: (v) => {
+        alert(`${this.moviePut.tittle} atualizado com sucesso`)
+        this.movieService.getMovies().subscribe(data => {
+          this.movieAll = data
+          this.updatePropertiesPutObject(this.movieAll[this.index])
+        })
+      },
+      error: (e) => alert(`Erro ao atualizar ${this.moviePut.tittle}`)
     })
+  }
+
+  updatePropertiesPutObject(movieDetail : MovieDetail){
+    this.moviePut.id = movieDetail.id
+    this.moviePut.tittle = movieDetail.tittle
+    this.moviePut.synopsis = movieDetail.synopsis
+    this.moviePut.image = movieDetail.image
+    this.moviePut.duration = movieDetail.duration
+    this.moviePut.launchData = movieDetail.launchData
+    this.moviePut.categoryID = movieDetail.category.id
+    this.moviePut.languageID = movieDetail.language.id
   }
 
 }

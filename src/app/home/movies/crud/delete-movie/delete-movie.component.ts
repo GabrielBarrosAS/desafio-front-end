@@ -11,9 +11,15 @@ export class DeleteMovieComponent implements OnInit {
 
   constructor(private movieService: MoviesService) { }
   movieAll: MovieDetail[] = []
+  id = -1
 
   ngOnInit(): void {
     this.movieService.getMovies().subscribe(data => this.movieAll = data)
+  }
+
+  updateSelected(id:number){
+    this.movieService.getMovies().subscribe(data => this.movieAll = data)
+    this.id = id
   }
 
 }

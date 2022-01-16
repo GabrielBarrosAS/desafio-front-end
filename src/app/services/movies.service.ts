@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, take, tap } from 'rxjs';
+import { delay, Observable, take, tap } from 'rxjs';
 import { MovieDetail, MoviePostDto, MoviePutDto } from '../util/dtos/MovieDtos';
 import { AuthService } from './auth.service';
 

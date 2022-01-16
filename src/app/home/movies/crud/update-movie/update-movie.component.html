@@ -2,7 +2,7 @@
   <div class="form-group drop-category">
     <label for="inputState">SELECT MOVIE TO UPDATE</label>
     <select id="inputState" class="form-control" (change)="movieUpdateSelected($event)">
-      <option [value]="-1">Escolha um filme para atualizar</option>
+      <option [value]=index>{{moviePut.tittle}</option>
       <option *ngFor="let item of movieAll, let i = index" [value]="i">
         {{item.tittle}}
       </option>

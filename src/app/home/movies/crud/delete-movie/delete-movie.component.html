@@ -1,10 +1,11 @@
 <div class="div-root d-flex justify-content-around flex-wrap">
-    <div *ngFor="let item of movieAll,let i = index" class="d-flex justify-content-around align-items-center" style="width: 50%;">
+    <div *ngFor="let item of movieAll,let i = index"
+        class="d-flex justify-content-between align-items-center flex-wrap div-ng-for">
         <div class="d-flex justify-content-center align-items-center div-data-movie">
             <div class="d-flex align-self-stretch div-img-movie">
                 <img src="{{item.image}}" class="img-movie">
             </div>
-            <div class="d-flex flex-column align-self-stretch justify-content-around div-movie-detail">
+            <div class="d-flex flex-column align-self-stretch justify-content-between div-movie-detail">
                 <div class="movie-detail">Tittle: {{item.tittle}}</div>
                 <div class="movie-detail">Synopsis: {{item.synopsis}}</div>
                 <div class="movie-detail">Launch Data: {{item.launchData}}</div>
@@ -14,8 +15,12 @@
             </div>
         </div>
         <div class="div-buttons">
-            <button>Atualizar</button>
-            <button>Deletar</button>
+            <button class="buttons btn btn-outline-danger">Deletar</button>
+            <button class="buttons btn btn-outline-warning" (click)="updateSelected(i)">Atualizar</button>
         </div>
+    </div>
+    <div class="updateMovie" *ngIf="id != -1">
+        <button (click)="updateSelected(-1)">exit</button>
+        <app-update-movie [index]=id></app-update-movie>
     </div>
 </div>
