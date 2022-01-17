@@ -29,8 +29,12 @@ export class CategoryService {
     return this.http.post<CategoryDetail>(this.API, objPost, this.authService.headerOptions()).pipe(take(1))
   }
 
-  update(categoryPut: CategoryPutDto) {
+  update(categoryPut: CategoryPutDto): Observable<CategoryDetail> {
     return this.http.put<CategoryDetail>(this.API, categoryPut, this.authService.headerOptions()).pipe(take(1))
+  }
+
+  delete(id: number): Observable<CategoryDetail> {
+    return this.http.delete<CategoryDetail>(`${this.API}/${id}`, this.authService.headerOptions()).pipe(take(1))
   }
 
 }

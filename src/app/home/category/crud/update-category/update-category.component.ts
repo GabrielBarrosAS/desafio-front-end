@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { LanguageService } from 'src/app/services/language.service';
 import { CategoryDetail, CategoryPutDto } from 'src/app/util/dtos/CategoryDtos';
 import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
+import { ModalGenericService } from 'src/app/util/shared/modal-generic/modal-generic.service';
 
 @Component({
   selector: 'app-update-category',
@@ -13,14 +14,19 @@ export class UpdateCategoryComponent implements OnInit {
 
   categoryAll: CategoryDetail[] = []
   languageAll: LanguageDetail[] = []
-  index = -1
-  sucess = 0
+  @Input() index = -1
   categoryPut: CategoryPutDto = new CategoryPutDto()
 
-  constructor(private categoryService: CategoryService, private languageService: LanguageService) { }
+  constructor(
+    private categoryService: CategoryService,
+    private languageService: LanguageService,
+    private modalGenericService: ModalGenericService) { }
 
   ngOnInit(): void {
-    this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
+    this.categoryService.getCategorys().subscribe(data => {
+      this.categoryAll = data
+      this.updatePropertiesPutObject(this.categoryAll[this.index])
+    })
     this.languageService.getLanguages().subscribe(data => this.languageAll = data)
   }
 
@@ -36,12 +42,20 @@ export class UpdateCategoryComponent implements OnInit {
 
   updateCategory() {
     this.categoryService.update(this.categoryPut).subscribe({
-      next: (v) => this.sucess = 1,
-      error: (e) => alert(e),
-      complete: () => console.info('complete')
+      next: (v) => {
+        this.modalGenericService.showModal("Sucesso ao atualizar categoria!")
+        this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
+        this.index = -1
+      },
+      error: (e) => this.modalGenericService.showModal("Erro ao atualizar categoria!"),
     })
-    //fazer com que os dados sejam atualizados aqui ou recarregar a página
-    this.index = -1
+  }
+
+  updatePropertiesPutObject(categoryDetail: CategoryDetail) {
+    this.categoryPut.id = categoryDetail.id
+    this.categoryPut.name = categoryDetail.name
+    this.categoryPut.tag = categoryDetail.tag
+    this.categoryPut.languageID = categoryDetail.language.id
   }
 
 

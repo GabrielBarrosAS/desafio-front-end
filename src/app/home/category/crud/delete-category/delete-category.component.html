@@ -1,1 +1,31 @@
-<p>delete-category works!</p>
+<div class="div-root d-flex justify-content-around flex-wrap">
+    <div *ngFor="let item of categoryAll,let i = index"
+        class="d-flex justify-content-between align-items-center flex-wrap div-ng-for">
+        <div class="d-flex flex-column justify-content-between align-items-center div-data-category">
+            <div class="d-flex justify-content-center align-items-center div-category-detail">
+                <div class="category-detail">Tittle: {{item.name}}</div>
+            </div>
+            <div class="d-flex align-self-stretch div-img-category">
+                <img src="{{item.tag}}" class="img-category">
+            </div>
+        </div>
+        <div class="div-buttons">
+            <button class="buttons btn btn-outline-danger" (click)="deleteCategory(item.id)">Deletar</button>
+            <button class="buttons btn btn-outline-warning" (click)="updateSelected(i)">Atualizar</button>
+        </div>
+    </div>
+    <div class="updateMovie" *ngIf="idUpdate != -1">
+        <button (click)="updateSelected(-1)" class="btn btn-danger btn-exit-update">
+            <mat-icon>close</mat-icon>
+        </button>
+        <app-update-category [index]=idUpdate></app-update-category>
+    </div>
+</div>
+
+<ng-template #deleteModal>
+    <div class="modal-body text-center">
+        <p>Do you really want to delete this movie?</p>
+        <button type="button" class="btn btn-default" (click)="confirmDelete()">Yes</button>
+        <button type="button" class="btn btn-primary" (click)="declineDelete()">No</button>
+    </div>
+</ng-template>

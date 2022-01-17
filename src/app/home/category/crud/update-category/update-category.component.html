@@ -1,57 +1,31 @@
 <div class="div-root">
-    <form class="needs-validation">
-        <div class="form-group drop-category">
-            <label>SELECT CATEGORY TO UPDATE</label>
-            <select id="inputState" class="form-control" (change)="categoryUpdateSelected($event)">
-                <option [value]="-1">Escolha uma cateogria para atualizar</option>
-                <option *ngFor="let item of categoryAll, let i = index" [value]="i">
-                    {{item.name}}
-                </option>
-            </select>
-        </div>
-        <div *ngIf="index != -1" class="div-form">
-            <div class="form-group">
-                <label>Name Category</label>
-                <input [(ngModel)]="categoryPut.name" name="name" type="text" class="form-control"  required>
-            </div>
-            <div class="form-group">
-                <label>Tag Category</label>
-                <input [(ngModel)]="categoryPut.tag" name="tag" type="text" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Select Language Category</label>
-                <select [(ngModel)]="categoryPut.languageID" name="languageID" id="inputState" class="form-control">
-                    <option *ngFor="let item of languageAll, let i = index" [value]="item.id">
-                        {{item.name}}({{item.tag}})</option>
-                </select>
-            </div>
-            <button type="submit" class="btn-submit" (click)="updateCategory()">Create <mat-icon> send </mat-icon>
-            </button>
-        </div>
-    </form>
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
+  <form class="needs-validation">
+    <div class="form-group drop-category">
+      <label>SELECT CATEGORY TO UPDATE</label>
+      <select id="inputState" class="form-control" (change)="categoryUpdateSelected($event)">
+        <option *ngFor="let item of categoryAll, let i = index" [value]="i">
+          {{item.name}}
+        </option>
+      </select>
     </div>
-  </div>
+    <div *ngIf="index != -1" class="div-form">
+      <div class="form-group">
+        <label>Name Category</label>
+        <input [(ngModel)]="categoryPut.name" name="name" type="text" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Tag Category</label>
+        <input [(ngModel)]="categoryPut.tag" name="tag" type="text" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Select Language Category</label>
+        <select [(ngModel)]="categoryPut.languageID" name="languageID" id="inputState" class="form-control">
+          <option *ngFor="let item of languageAll, let i = index" [value]="item.id">
+            {{item.name}}({{item.tag}})</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit" (click)="updateCategory()">Create <mat-icon> send </mat-icon>
+      </button>
+    </div>
+  </form>
 </div>
