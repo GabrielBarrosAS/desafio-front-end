@@ -15,12 +15,22 @@
             </div>
         </div>
         <div class="div-buttons">
-            <button class="buttons btn btn-outline-danger">Deletar</button>
+            <button class="buttons btn btn-outline-danger" (click)="deleteMovie(item.id)">Deletar</button>
             <button class="buttons btn btn-outline-warning" (click)="updateSelected(i)">Atualizar</button>
         </div>
     </div>
-    <div class="updateMovie" *ngIf="id != -1">
-        <button (click)="updateSelected(-1)">exit</button>
-        <app-update-movie [index]=id></app-update-movie>
+    <div class="updateMovie" *ngIf="idUpdate != -1">
+        <button (click)="updateSelected(-1)" class="btn btn-danger btn-exit-update">
+            <mat-icon>close</mat-icon>
+        </button>
+        <app-update-movie [index]=idUpdate></app-update-movie>
     </div>
 </div>
+
+<ng-template #deleteModal>
+    <div class="modal-body text-center">
+        <p>Do you really want to delete this movie?</p>
+        <button type="button" class="btn btn-default" (click)="confirmDelete()">Yes</button>
+        <button type="button" class="btn btn-primary" (click)="declineDelete()">No</button>
+    </div>
+</ng-template>

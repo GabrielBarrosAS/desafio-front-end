@@ -34,10 +34,14 @@ export class MoviesService {
 
   }
 
-  update(moviePut: MoviePutDto) {
+  update(moviePut: MoviePutDto): Observable<MovieDetail> {
 
     return this.http.put<MovieDetail>(this.API, moviePut, this.authService.headerOptions()).pipe(take(1))
 
+  }
+
+  delete(id: number): Observable<MovieDetail> {
+    return this.http.delete<MovieDetail>(`${this.API}/${id}`, this.authService.headerOptions()).pipe(take(1))
   }
 
 }
