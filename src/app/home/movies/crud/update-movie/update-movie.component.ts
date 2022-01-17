@@ -5,6 +5,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 import { CategoryDetail } from 'src/app/util/dtos/CategoryDtos';
 import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
 import { MovieDetail, MoviePutDto } from 'src/app/util/dtos/MovieDtos';
+import { ModalGenericService } from 'src/app/util/shared/modal-generic/modal-generic.service';
 
 @Component({
   selector: 'app-update-movie',
@@ -20,9 +21,11 @@ export class UpdateMovieComponent implements OnInit {
 
   moviePut: MoviePutDto = new MoviePutDto()
 
-  constructor(private languageService: LanguageService, private categoryService: CategoryService, private movieService: MoviesService) {
-
-  }
+  constructor(
+    private languageService: LanguageService,
+    private categoryService: CategoryService,
+    private movieService: MoviesService,
+    private modalGenericService: ModalGenericService) { }
 
   ngOnInit(): void {
 
@@ -34,7 +37,7 @@ export class UpdateMovieComponent implements OnInit {
     })
   }
 
-  ngOnChanges() : void{
+  ngOnChanges(): void {
     this.movieService.getMovies().subscribe(data => {
       this.movieAll = data
       this.updatePropertiesPutObject(this.movieAll[this.index])
@@ -51,17 +54,17 @@ export class UpdateMovieComponent implements OnInit {
   updateMovie() {
     this.movieService.update(this.moviePut).subscribe({
       next: (v) => {
-        alert(`${this.moviePut.tittle} atualizado com sucesso`)
+        this.modalGenericService.showModal("Filme Atualizado com sucesso")
         this.movieService.getMovies().subscribe(data => {
           this.movieAll = data
           this.updatePropertiesPutObject(this.movieAll[this.index])
         })
       },
-      error: (e) => alert(`Erro ao atualizar ${this.moviePut.tittle}`)
+      error: (e) => this.modalGenericService.showModal("Erro ao atualizar filme")
     })
   }
 
-  updatePropertiesPutObject(movieDetail : MovieDetail){
+  updatePropertiesPutObject(movieDetail: MovieDetail) {
     this.moviePut.id = movieDetail.id
     this.moviePut.tittle = movieDetail.tittle
     this.moviePut.synopsis = movieDetail.synopsis

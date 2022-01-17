@@ -3,6 +3,7 @@ import { CategoryService } from 'src/app/services/category.service';
 import { LanguageService } from 'src/app/services/language.service';
 import { CategoryDetail, CategoryPostDto } from 'src/app/util/dtos/CategoryDtos';
 import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
+import { ModalGenericService } from 'src/app/util/shared/modal-generic/modal-generic.service';
 
 @Component({
   selector: 'app-create-category',
@@ -15,7 +16,10 @@ export class CreateCategoryComponent implements OnInit {
   categoryForm: CategoryPostDto = new CategoryPostDto()
   index = 0
 
-  constructor(private languageService: LanguageService, private categoryService: CategoryService) { }
+  constructor(
+    private languageService: LanguageService,
+    private categoryService: CategoryService,
+    private modalGenericService: ModalGenericService) { }
 
   ngOnInit(): void {
 
@@ -25,13 +29,12 @@ export class CreateCategoryComponent implements OnInit {
 
   createCategory() {
     this.categoryService.create(this.categoryForm).subscribe({
-      next: (v) => alert(v),
-      error: (e) => alert(e),
-      complete: () => console.info('complete') 
+      next: () => this.modalGenericService.showModal("Categoria criada com sucesso!"),
+      error: () => this.modalGenericService.showModal("Erro ao criar categoria!")
     })
   }
 
-  languageSelected(i:Event){
+  languageSelected(i: Event) {
     var a = i.target as HTMLInputElement
     this.index = Number(a.value)
   }

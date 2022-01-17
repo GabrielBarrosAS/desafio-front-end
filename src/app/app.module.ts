@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarModule } from './navbar/navbar.module';
 import { AuthService } from './services/auth.service';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { SharedModule } from './util/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,10 @@ import { AuthService } from './services/auth.service';
     BrowserAnimationsModule,
     MatIconModule,
     FormsModule,
+    ModalModule.forRoot(),
     NavbarModule,
     HomeModule,
+    SharedModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

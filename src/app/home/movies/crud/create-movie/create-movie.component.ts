@@ -5,6 +5,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 import { CategoryDetail } from 'src/app/util/dtos/CategoryDtos';
 import { LanguageDetail } from 'src/app/util/dtos/LanguageDetail.class';
 import { MoviePostDto } from 'src/app/util/dtos/MovieDtos';
+import { ModalGenericService } from 'src/app/util/shared/modal-generic/modal-generic.service';
 
 @Component({
   selector: 'app-create-movie',
@@ -16,7 +17,11 @@ export class CreateMovieComponent implements OnInit {
   categoryAll: CategoryDetail[] = []
   newMovie: MoviePostDto = new MoviePostDto()
 
-  constructor(private languageService:LanguageService,private categoryService: CategoryService,private movieService:MoviesService) { }
+  constructor(
+    private languageService: LanguageService,
+    private categoryService: CategoryService,
+    private movieService: MoviesService,
+    private modalGenericService: ModalGenericService) { }
 
   ngOnInit(): void {
 
@@ -25,11 +30,10 @@ export class CreateMovieComponent implements OnInit {
 
   }
 
-  createMovie(){
+  createMovie() {
     this.movieService.create(this.newMovie).subscribe({
-      next: (v) => alert(v),
-      error: (e) => alert(e),
-      complete: () => console.info('complete') 
+      next: (v) => this.modalGenericService.showModal("Filme Criado com sucesso!"),
+      error: (e) => this.modalGenericService.showModal("Erro ao criar filme!"),
     })
   }
 }

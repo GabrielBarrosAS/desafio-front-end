@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MoviesService } from 'src/app/services/movies.service';
 import { MovieDetail } from 'src/app/util/dtos/MovieDtos';
+import { ModalGenericService } from 'src/app/util/shared/modal-generic/modal-generic.service';
 
 @Component({
   selector: 'app-delete-movie',
@@ -10,7 +11,10 @@ import { MovieDetail } from 'src/app/util/dtos/MovieDtos';
 })
 export class DeleteMovieComponent implements OnInit {
 
-  constructor(private movieService: MoviesService, private modalService: BsModalService) { }
+  constructor(
+    private movieService: MoviesService,
+    private modalService: BsModalService,
+    private modalGenericService:ModalGenericService) { }
 
   deleteModalRef: BsModalRef | undefined;
   @ViewChild('deleteModal') deleteModal: any;
@@ -36,11 +40,11 @@ export class DeleteMovieComponent implements OnInit {
   confirmDelete() {
     this.movieService.delete(this.idDelete).subscribe({
       next: () => {
-        alert(`Deletado com sucesso`)
+        this.modalGenericService.showModal("Filme deletado com sucesso!")
         this.movieService.getMovies().subscribe(data => this.movieAll = data)
         this.idDelete = -1
       },
-      error: () => alert(`Erro ao deletar`)
+      error: () => this.modalGenericService.showModal("Erro ao deletar filme!")
     })
     this.declineDelete()
   }
