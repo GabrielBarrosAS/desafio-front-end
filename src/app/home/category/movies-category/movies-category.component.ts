@@ -16,18 +16,19 @@ export class MoviesCategoryComponent implements OnInit {
   movieListCategory: MovieDetail[] = []
   movieShow: MovieDetail[] = []
   categoryAll: CategoryDetail[] = []
+  categoryDetail: CategoryDetail | undefined;
   index = 0
 
-  constructor(private _activatedroute: ActivatedRoute, private _movieService: MoviesService,private categoryService:CategoryService) {
-    this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
+  constructor(private _activatedroute: ActivatedRoute, private _movieService: MoviesService, private categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
+    this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
     this._activatedroute.paramMap.subscribe(params => {
       this.id = Number(params.get('id'));
       this.movieListCategory = this._movieService.getMoviesCategory(this.id)
-      this.movieShow = this._movieService.getMoviesCategory(this.id).slice(0,3)
-      console.log(this.categoryAll)
+      this.movieShow = this._movieService.getMoviesCategory(this.id).slice(0, 3)
+      this.categoryService.getCategoryById(this.id).subscribe(data => this.categoryDetail = data)
     });
   }
 

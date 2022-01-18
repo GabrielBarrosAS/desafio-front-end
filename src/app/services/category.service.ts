@@ -24,6 +24,12 @@ export class CategoryService {
     )
   }
 
+  getCategoryById(id:number): Observable<CategoryDetail> {
+
+    return this.http.get<CategoryDetail>(`${this.API}/${id}`)
+
+  }
+
   create(objPost: CategoryPostDto): Observable<CategoryDetail> {
 
     return this.http.post<CategoryDetail>(this.API, objPost, this.authService.headerOptions()).pipe(take(1))

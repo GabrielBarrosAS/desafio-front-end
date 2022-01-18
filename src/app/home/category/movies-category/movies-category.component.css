@@ -68,21 +68,16 @@
 }
 
 .carousel-button{
-    background-color: red;
+    color: white;
     font-family: 'Roboto';
     font-weight: 700;
     font-size: 3vmin;
     width: 3%;
     height: 50%;
     border: none;
-    opacity: 10%;
+    background: unset;
 }
 
 .carousel-button:active{
-    border: 1px solid white;
-}
-
-.carousel-button:hover{
-    transition: 0ms;
-    opacity: 100%;
+    color: red;
 }
