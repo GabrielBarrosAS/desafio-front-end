@@ -57,7 +57,7 @@ export class UpdateMovieComponent implements OnInit {
         this.modalGenericService.showModal("Filme Atualizado com sucesso")
         this.movieService.getMovies().subscribe(data => {
           this.movieAll = data
-          this.updatePropertiesPutObject(this.movieAll[this.index])
+          this.index = -1
         })
       },
       error: (e) => this.modalGenericService.showModal("Erro ao atualizar filme")

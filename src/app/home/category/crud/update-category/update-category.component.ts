@@ -14,7 +14,7 @@ export class UpdateCategoryComponent implements OnInit {
 
   categoryAll: CategoryDetail[] = []
   languageAll: LanguageDetail[] = []
-  @Input() index = -1
+  @Input() index = 0
   categoryPut: CategoryPutDto = new CategoryPutDto()
 
   constructor(
