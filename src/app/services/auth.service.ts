@@ -37,13 +37,13 @@ export class AuthService {
     return headerOptions
   }
 
-  setLocalStorage(key: string, value: string) {
+  private setLocalStorage(key: string, value: string) {
 
     localStorage.setItem(key, value)
 
   }
 
-  getLocalStorage(key: string): String | null {
+  private getLocalStorage(key: string): String | null {
 
     return localStorage.getItem(key)
 

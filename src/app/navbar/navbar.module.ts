@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { RoutingCategory } from '../home/category/routing/category.routing';
 import { RoutingMovies } from '../home/movies/routing/movies.routing';
+import { RoutingUsers } from '../home/users/routing/users.routing';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -20,7 +21,8 @@ import { RoutingMovies } from '../home/movies/routing/movies.routing';
     ModalModule.forRoot(),
     MatIconModule,
     RoutingCategory,
-    RoutingMovies
+    RoutingMovies,
+    RoutingUsers
   ],
   exports: [
     BsDropdownModule,

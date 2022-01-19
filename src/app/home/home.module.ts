@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MoviesModule } from './movies/movies.module';
 import { CategoryModule } from './category/category.module';
 import { HomeComponent } from './home.component';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -10,6 +11,7 @@ import { HomeComponent } from './home.component';
     CommonModule,
     MoviesModule,
     CategoryModule,
+    UsersModule
   ],
   exports: [HomeComponent]
 })

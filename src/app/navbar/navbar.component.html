@@ -20,9 +20,9 @@
         <li class="nav-item dropdown" dropdown *ngIf="userAutenticatedAdmin">
             <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Users</button>
             <div class="dropdown-menu" *dropdownMenu>
-                <a class="dropdown-item" href="#">Criar Usuário</a>
-                <a class="dropdown-item" href="#">Atualizar Usuário</a>
-                <a *ngIf="userAutenticatedAdmin" class="dropdown-item" href="#">Deletar Usuário</a>
+                <a class="dropdown-item" routerLink="create-users">Criar Usuário</a>
+                <a class="dropdown-item" routerLink="update-users">Atualizar Usuário</a>
+                <a *ngIf="userAutenticatedAdmin" class="dropdown-item" routerLink="delete-users">Deletar Usuário</a>
             </div>
         </li>
     </div>

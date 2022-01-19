@@ -1,11 +1,9 @@
 class User {
     email: string
     password: string
-    roles: string[]
-    constructor(email: string = "", senha: string = "", roles: string[] = []) {
+    constructor(email: string = "", senha: string = "") {
         this.email = email
         this.password = senha
-        this.roles = roles
     }
 }
 
@@ -13,13 +11,40 @@ class UserDetail {
     id: number;
     token: string;
     roles: string;
-    status: number;
-    constructor(id: number = 0, token: string = "", roles: string = "", status: number = 0) {
+    constructor(id: number = 0, token: string = "", roles: string = "") {
         this.id = id
         this.token = token
         this.roles = roles
-        this.status = status
     }
 }
 
-export { User, UserDetail }
+class UserPostDto{
+    name: string
+    cpf:	string
+    telephone:	string
+    email: string
+    password: string
+    profile:	string
+    languageID:	number
+    roles: string
+    constructor(name: string="",
+        cpf:string="",
+        telephone:string="",
+        email: string="",
+        password: string="",
+        profile:string="",
+        roles: string="",
+        languageID:number = -1){
+        
+        this.name = name
+        this.cpf = cpf
+        this.telephone = telephone
+        this.email = email
+        this.password = password
+        this.profile = profile
+        this.languageID = languageID
+        this.roles = roles
+    }
+}
+
+export { User, UserDetail,UserPostDto }

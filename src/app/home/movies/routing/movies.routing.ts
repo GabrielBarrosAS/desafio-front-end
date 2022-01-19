@@ -8,7 +8,6 @@ import { MoviesComponent } from "../movies.component";
 
 
 const MOVIES_ROUTES: Routes = [
-    { path: "", component: MoviesComponent},
     { path: "create-movie", component: CreateMovieComponent},
     { path: "delete-movie", component: DeleteMovieComponent},
     { path: "update-movie", component: UpdateMovieComponent},
