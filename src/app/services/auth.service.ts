@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
 import { User, UserDetail } from '../util/dtos/UserDtos';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UserService } from './user.service';
-import { take } from 'rxjs';
 import { ModalGenericService } from '../util/shared/modal-generic/modal-generic.service';
 
 @Injectable({
@@ -26,8 +24,9 @@ export class AuthService {
   ) { }
 
   headerOptions() {
-    console.log(document.cookie.split("="))
-    let authorizationData = 'Basic ' + document.cookie.split("=")[1];
+
+    console.log(this.getLocalStorage("token"))
+    let authorizationData = 'Basic ' + this.getLocalStorage("token");
 
     const headerOptions = {
       headers: new HttpHeaders({
@@ -38,20 +37,31 @@ export class AuthService {
     return headerOptions
   }
 
+  setLocalStorage(key: string, value: string) {
+
+    localStorage.setItem(key, value)
+
+  }
+
+  getLocalStorage(key: string): String | null {
+
+    return localStorage.getItem(key)
+
+  }
+
   authenticate(user: User) {
-    this.response.token = ""
-    this.response.id = -1
-    this.response.roles = ""
 
     this.userAdminEmitter.emit(false);
-    this.userEmitter.emit(false);
+    this.userAdminEmitter.emit(false);
+    this.setLocalStorage("token", "")
+    this.setLocalStorage("roles", "")
 
     this.http.post<UserDetail>(this.API, user).subscribe({
       next: data => {
 
         this.response = data
 
-        document.cookie = `token=${this.response.token}`
+        this.setLocalStorage("token", data.token)
 
         this.http.get<UserDetail>(`http://localhost:8080/users/${this.response.id}`, this.headerOptions()).subscribe(
 
@@ -61,9 +71,11 @@ export class AuthService {
 
             if (listRoles.includes("ROLE_ADMIN")) {
               this.modalGenericService.showModal("Seja bem vindo usuário ADMINISTRADOR!")
+              this.setLocalStorage("roles", "ROLE_ADMIN")
               this.userAdminEmitter.emit(true);
             } else {
               this.modalGenericService.showModal("Seja bem vindo usuário!")
+              this.setLocalStorage("roles", "ROLE_USER")
               this.userEmitter.emit(true);
             }
             this.router.navigate(['/'])

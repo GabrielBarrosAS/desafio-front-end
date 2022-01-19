@@ -45,7 +45,8 @@ export class UpdateCategoryComponent implements OnInit {
       next: (v) => {
         this.modalGenericService.showModal("Sucesso ao atualizar categoria!")
         this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
-        this.index = -1
+        this.updatePropertiesPutObject(this.categoryAll[0])
+        this.index = 0
       },
       error: (e) => this.modalGenericService.showModal("Erro ao atualizar categoria!"),
     })

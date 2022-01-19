@@ -5,8 +5,7 @@
             <div class="dropdown-menu" *dropdownMenu>
                 <a class="dropdown-item" routerLink="create-movie">Criar Filme</a>
                 <a class="dropdown-item" routerLink="update-movie">Atualizar Filme</a>
-                <a class="dropdown-item" routerLink="delete-movie">Deletar Filme</a>
-                <a class="dropdown-item" routerLink="">Listar Filmes</a>
+                <a *ngIf="userAutenticatedAdmin" class="dropdown-item" routerLink="delete-movie">Deletar Filme</a>
             </div>
         </li>
         <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
@@ -14,8 +13,8 @@
             <div class="dropdown-menu" *dropdownMenu>
                 <a class="dropdown-item" routerLink="create-category">Criar Categoria</a>
                 <a class="dropdown-item" routerLink="update-category">Atualizar Categoria</a>
-                <a class="dropdown-item" routerLink="delete-category">Deletar Categoria</a>
-                <a class="dropdown-item" routerLink="">Listar Categoria</a>
+                <a *ngIf="userAutenticatedAdmin" class="dropdown-item" routerLink="delete-category">Deletar
+                    Categoria</a>
             </div>
         </li>
         <li class="nav-item dropdown" dropdown *ngIf="userAutenticatedAdmin">
@@ -23,8 +22,7 @@
             <div class="dropdown-menu" *dropdownMenu>
                 <a class="dropdown-item" href="#">Criar Usuário</a>
                 <a class="dropdown-item" href="#">Atualizar Usuário</a>
-                <a class="dropdown-item" href="#">Deletar Usuário</a>
-                <a class="dropdown-item" href="#">Listar Usuário</a>
+                <a *ngIf="userAutenticatedAdmin" class="dropdown-item" href="#">Deletar Usuário</a>
             </div>
         </li>
     </div>
