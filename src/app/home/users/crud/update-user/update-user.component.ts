@@ -56,6 +56,7 @@ export class UpdateUserComponent implements OnInit {
     this.userPut.name = userDetail.name
     this.userPut.cpf = userDetail.cpf
     this.userPut.email = userDetail.email
+    this.userPut.password = ""
     this.userPut.telephone = userDetail.telephone
     this.userPut.profile = userDetail.profile
     this.userPut.languageID = userDetail.language.id

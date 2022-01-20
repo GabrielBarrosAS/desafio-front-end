@@ -1,1 +1,36 @@
-<p>delete-user works!</p>
+<div class="div-root d-flex justify-content-around flex-wrap">
+    <div *ngFor="let item of usersAll,let i = index"
+        class="d-flex justify-content-between align-items-center flex-wrap div-ng-for">
+        <div class="d-flex justify-content-center align-items-center div-data-movie">
+            <div class="d-flex align-self-stretch div-img-movie">
+                <img src="{{item.profile}}" class="img-movie">
+            </div>
+            <div class="d-flex flex-column align-self-stretch justify-content-between div-movie-detail">
+                <div class="movie-detail">Name: {{item.name}}</div>
+                <div class="movie-detail">CPF: {{item.cpf}}</div>
+                <div class="movie-detail">Telephone: {{item.telephone}}</div>
+                <div class="movie-detail">Email: {{item.email}}</div>
+                <div class="movie-detail">Roles: {{item.roles}}</div>
+                <div class="movie-detail">Active: {{item.active}}</div>
+            </div>
+        </div>
+        <div class="div-buttons">
+            <button class="buttons btn btn-outline-danger" (click)="deleteMovie(item.id)">Deletar</button>
+            <button class="buttons btn btn-outline-warning" (click)="updateSelected(i)">Atualizar</button>
+        </div>
+    </div>
+    <div class="updateMovie" *ngIf="idUpdate != -1">
+        <button (click)="updateSelected(-1)" class="btn btn-danger btn-exit-update">
+            <mat-icon>close</mat-icon>
+        </button>
+        <app-update-user [index]=idUpdate></app-update-user>
+    </div>
+</div>
+
+<ng-template #deleteModal>
+    <div class="modal-body text-center">
+        <p>Do you really want to delete this movie?</p>
+        <button type="button" class="btn btn-default" (click)="confirmDelete()">Yes</button>
+        <button type="button" class="btn btn-primary" (click)="declineDelete()">No</button>
+    </div>
+</ng-template>

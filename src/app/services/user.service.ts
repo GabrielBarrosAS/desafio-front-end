@@ -31,7 +31,12 @@ export class UserService {
   }
 
   update(userPut: UserPutDto): Observable<UserDetail> {
-    console.log(userPut)
     return this.http.put<UserDetail>(this.API, userPut, this.authService.headerOptions())
+  }
+
+  delete(id: number): Observable<UserDetail> {
+
+    return this.http.delete<UserDetail>(`${this.API}${id}`, this.authService.headerOptions()).pipe(take(1))
+
   }
 }
