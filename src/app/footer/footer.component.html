@@ -3,9 +3,13 @@
         <mat-icon> home </mat-icon>
         <span>Home</span>
     </button>
-    <button routerLink="login" class="button-footer">
+    <button routerLink="login" class="button-footer" *ngIf="!userAutenticated && !userAutenticatedAdmin">
         <mat-icon> input </mat-icon>
         <span>Login</span>
+    </button>
+    <button (click)="logout()" class="button-footer" *ngIf="userAutenticated || userAutenticatedAdmin">
+        <mat-icon> logout </mat-icon>
+        <span>Logout</span>
     </button>
     <button class="button-footer">
         <mat-icon> reorder </mat-icon>

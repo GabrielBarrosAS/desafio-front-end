@@ -48,10 +48,25 @@ export class AuthService {
 
   }
 
+
+  logout() {
+
+    this.http.get<UserDetail>(`http://localhost:8080/users/${this.response.id}`, this.headerOptions())
+      .subscribe({
+        next: (v) => this.modalGenericService.showModal(`Até logo, ${v.name}`)
+      })
+
+    this.setLocalStorage("token", "")
+    this.setLocalStorage("roles", "")
+    this.userAdminEmitter.emit(false);
+    this.userEmitter.emit(false);
+    this.router.navigate(['/'])
+  }
+
   authenticate(user: User) {
 
     this.userAdminEmitter.emit(false);
-    this.userAdminEmitter.emit(false);
+    this.userEmitter.emit(false);
     this.setLocalStorage("token", "")
     this.setLocalStorage("roles", "")
 
