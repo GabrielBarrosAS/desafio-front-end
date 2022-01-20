@@ -17,7 +17,7 @@ export class UpdateMovieComponent implements OnInit {
   languageAll: LanguageDetail[] = []
   categoryAll: CategoryDetail[] = []
   movieAll: MovieDetail[] = []
-  @Input() index: number = 0
+  @Input() index: number = -1
 
   moviePut: MoviePutDto = new MoviePutDto()
 
@@ -58,7 +58,7 @@ export class UpdateMovieComponent implements OnInit {
         this.movieService.getMovies().subscribe(data => {
           this.movieAll = data
           this.updatePropertiesPutObject(this.movieAll[0])
-          this.index = 0
+          this.index = -1
         })
       },
       error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage)

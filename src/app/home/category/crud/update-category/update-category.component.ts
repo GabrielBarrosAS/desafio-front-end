@@ -14,7 +14,7 @@ export class UpdateCategoryComponent implements OnInit {
 
   categoryAll: CategoryDetail[] = []
   languageAll: LanguageDetail[] = []
-  @Input() index = 0
+  @Input() index = -1
   categoryPut: CategoryPutDto = new CategoryPutDto()
 
   constructor(
@@ -46,7 +46,7 @@ export class UpdateCategoryComponent implements OnInit {
         this.modalGenericService.showModal("Sucesso ao atualizar categoria!")
         this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
         this.updatePropertiesPutObject(this.categoryAll[0])
-        this.index = 0
+        this.index = -1
       },
       error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage),
     })

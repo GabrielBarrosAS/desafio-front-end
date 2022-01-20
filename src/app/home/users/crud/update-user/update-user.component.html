@@ -2,7 +2,8 @@
     <div class="form-group drop-category">
         <label>SELECT USER TO UPDATE</label>
         <select class="form-control" (change)="userUpdateSelected(($event))">
-            <option *ngFor="let item of usersAll, let i = index" [value]="i">
+            <option [selected]="index === -1" [value]="-1">SELECIONE UM USUARIO</option>
+            <option [selected]="index === i" *ngFor="let item of usersAll, let i = index" [value]="i">
                 {{item.email}}
             </option>
         </select>

@@ -14,7 +14,7 @@ export class UpdateUserComponent implements OnInit {
 
   usersAll: UserDetail[] = []
   languageAll: LanguageDetail[] = []
-  @Input() index = 0
+  @Input() index = -1
   userPut: UserPutDto = new UserPutDto()
 
   constructor(
@@ -26,6 +26,7 @@ export class UpdateUserComponent implements OnInit {
     this.userService.getUsers().subscribe(data => {
       this.usersAll = data
       this.updatePropertiesPutObject(this.usersAll[this.index])
+      console.log(this.index)
     })
     this.languageService.getLanguages().subscribe(data => this.languageAll = data)
   }
@@ -43,8 +44,8 @@ export class UpdateUserComponent implements OnInit {
         this.modalGenericService.showModal("Usuário atualizado com sucesso")
         this.userService.getUsers().subscribe(data => {
           this.usersAll = data
-          this.updatePropertiesPutObject(this.usersAll[0])
-          this.index = 0
+          this.index = -1
+          this.updatePropertiesPutObject(this.usersAll[this.index])
         })
       },
       error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage)
