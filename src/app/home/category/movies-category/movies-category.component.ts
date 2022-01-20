@@ -17,7 +17,7 @@ export class MoviesCategoryComponent implements OnInit {
   movieShow: MovieDetail[] = []
   categoryAll: CategoryDetail[] = []
   categoryDetail: CategoryDetail | undefined;
-  index = 0
+  index = 1
 
   constructor(private _activatedroute: ActivatedRoute, private _movieService: MoviesService, private categoryService: CategoryService) {
   }
@@ -30,26 +30,21 @@ export class MoviesCategoryComponent implements OnInit {
       this.movieShow = this._movieService.getMoviesCategory(this.id).slice(0, 3)
       this.categoryService.getCategoryById(this.id).subscribe(data => this.categoryDetail = data)
     });
+    setInterval(() => {
+      this.nextMovie()
+    }, 5000)
   }
 
   previousMovie() {
-    if (this.index > 0) {
-      this.index--;
-    } else {
-      this.movieListCategory.unshift(this.movieListCategory[this.movieListCategory.length - 1])
-      this.movieListCategory.pop()
-      this.movieListCategory = this.movieListCategory.slice()
-    }
+    this.movieListCategory.unshift(this.movieListCategory[this.movieListCategory.length - 1])
+    this.movieListCategory.pop()
+    this.movieShow = this.movieListCategory.slice(0, 3)
   }
 
   nextMovie() {
-    if (this.index < this.movieShow.length - 1) {
-      this.index++;
-    } else {
-      this.movieListCategory.push(this.movieListCategory[0])
-      this.movieListCategory = this.movieListCategory.slice(1)
-      this.movieListCategory = this.movieListCategory.slice()
-    }
+    this.movieListCategory.push(this.movieListCategory[0])
+    this.movieListCategory = this.movieListCategory.slice(1)
+    this.movieShow = this.movieListCategory.slice(0, 3)
   }
 
 }

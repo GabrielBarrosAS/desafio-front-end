@@ -10,10 +10,10 @@
             <mat-icon> arrow_back </mat-icon>
         </button>
 
-        <div *ngFor="let item of movieListCategory, let i = index" class="list-movies-item">
-            <div class="d-flex flex-column" style="height: 100%;">
-                <span class="d-flex justify-content-center info-movie"
-                    [ngClass]="{'info-movie-selected':i==index,'info-movie-no-selected':i!=index}">
+        <div *ngFor="let item of movieListCategory, let i = index" class="info-movie-no-selected"
+            [ngClass]="{'info-movie-selected':i==1 || movieListCategory.length == 1}">
+            <div class="d-flex flex-column">
+                <span class="d-flex justify-content-center info-movie">
                     {{item.tittle}}
                 </span>
                 <img src="{{item.image}}" class="img-movie-category">

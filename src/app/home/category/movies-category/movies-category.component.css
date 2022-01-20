@@ -32,14 +32,26 @@
 }
 
 .list-movies{
-    height: 200px;
-    margin-top: 5%;
-    margin-bottom: 8%;
+    margin-top: 1%;
+    margin-bottom: 5%;
 }
 
-.list-movies-item{
-    width: 25%;
-    height: 250px;
+
+.info-movie-no-selected{
+    color: black;
+    background-color: white;
+    opacity: 20%;
+    border-radius: 8%;
+    width: 15%;
+    transition: 2s;
+    z-index: -1;
+}
+
+.info-movie-selected{
+    transform: scale(1.2);
+    color: white;
+    background-color: red;
+    opacity: 100%;
 }
 
 .info-movie{
@@ -52,19 +64,8 @@
     width: 100%;
 }
 
-.info-movie-no-selected{
-    color: black;
-    background-color: white;
-}
-
-.info-movie-selected{
-    color: white;
-    background-color: red;
-}
 .img-movie-category{
-    width: 100%;
-    height: 100%;
-    border-radius: 0% 0% 8% 8%;
+    border-radius: 8%;
 }
 
 .carousel-button{
