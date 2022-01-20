@@ -61,7 +61,7 @@ export class UpdateMovieComponent implements OnInit {
           this.index = 0
         })
       },
-      error: (e) => this.modalGenericService.showModal("Erro ao atualizar filme")
+      error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage)
     })
   }
 

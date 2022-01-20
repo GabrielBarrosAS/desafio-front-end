@@ -48,7 +48,7 @@ export class UpdateCategoryComponent implements OnInit {
         this.updatePropertiesPutObject(this.categoryAll[0])
         this.index = 0
       },
-      error: (e) => this.modalGenericService.showModal("Erro ao atualizar categoria!"),
+      error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage),
     })
   }
 

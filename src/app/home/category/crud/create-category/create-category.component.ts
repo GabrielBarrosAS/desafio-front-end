@@ -30,7 +30,7 @@ export class CreateCategoryComponent implements OnInit {
   createCategory() {
     this.categoryService.create(this.categoryForm).subscribe({
       next: () => this.modalGenericService.showModal("Categoria criada com sucesso!"),
-      error: () => this.modalGenericService.showModal("Erro ao criar categoria!")
+      error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage)
     })
   }
 

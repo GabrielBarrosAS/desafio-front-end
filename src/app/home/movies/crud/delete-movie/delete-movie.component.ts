@@ -14,7 +14,7 @@ export class DeleteMovieComponent implements OnInit {
   constructor(
     private movieService: MoviesService,
     private modalService: BsModalService,
-    private modalGenericService:ModalGenericService) { }
+    private modalGenericService: ModalGenericService) { }
 
   deleteModalRef: BsModalRef | undefined;
   @ViewChild('deleteModal') deleteModal: any;
@@ -44,7 +44,7 @@ export class DeleteMovieComponent implements OnInit {
         this.movieService.getMovies().subscribe(data => this.movieAll = data)
         this.idDelete = -1
       },
-      error: () => this.modalGenericService.showModal("Erro ao deletar filme!")
+      error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage)
     })
     this.declineDelete()
   }

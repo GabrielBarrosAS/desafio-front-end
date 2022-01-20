@@ -46,7 +46,7 @@ export class DeleteCategoryComponent implements OnInit {
         this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
         this.idDelete = -1
       },
-      error: () => this.modalGenericService.showModal("Erro ao deletar categoria!")
+      error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage)
     })
     this.declineDelete()
   }

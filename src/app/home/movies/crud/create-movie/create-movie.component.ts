@@ -33,7 +33,7 @@ export class CreateMovieComponent implements OnInit {
   createMovie() {
     this.movieService.create(this.newMovie).subscribe({
       next: (v) => this.modalGenericService.showModal("Filme Criado com sucesso!"),
-      error: (e) => this.modalGenericService.showModal("Erro ao criar filme!"),
+      error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage),
     })
   }
 }
