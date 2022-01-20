@@ -1,3 +1,5 @@
+import { LanguageDetail } from "./LanguageDetail.class";
+
 class User {
     email: string
     password: string
@@ -7,7 +9,7 @@ class User {
     }
 }
 
-class UserDetail {
+class UserDetailAuth {
     id: number;
     token: string;
     roles: string;
@@ -18,24 +20,59 @@ class UserDetail {
     }
 }
 
-class UserPostDto{
+class UserDetail {
+    id: number
     name: string
-    cpf:	string
-    telephone:	string
+    cpf: string
+    telephone: string
     email: string
     password: string
-    profile:	string
-    languageID:	number
+    profile: string
+    language: LanguageDetail
     roles: string
-    constructor(name: string="",
-        cpf:string="",
-        telephone:string="",
-        email: string="",
-        password: string="",
-        profile:string="",
-        roles: string="",
-        languageID:number = -1){
-        
+    active: boolean
+    constructor(id: number = 0,
+        name: string = "",
+        cpf: string = "",
+        telephone: string = "",
+        email: string = "",
+        password: string = "",
+        profile: string = "",
+        roles: string = "",
+        language: LanguageDetail = new LanguageDetail(),
+        active: boolean = true) {
+
+        this.id = id
+        this.name = name
+        this.cpf = cpf
+        this.telephone = telephone
+        this.email = email
+        this.password = password
+        this.profile = profile
+        this.language = language
+        this.roles = roles
+        this.active = active
+    }
+}
+
+class UserPostDto {
+    name: string
+    cpf: string
+    telephone: string
+    email: string
+    password: string
+    profile: string
+    languageID: number
+    roles: string
+    constructor(name: string = "",
+        cpf: string = "",
+        telephone: string = "",
+        email: string = "",
+        password: string = "",
+        profile: string = "",
+        roles: string = "",
+        languageID: number = -1) {
+
         this.name = name
         this.cpf = cpf
         this.telephone = telephone
@@ -47,4 +84,38 @@ class UserPostDto{
     }
 }
 
-export { User, UserDetail,UserPostDto }
+class UserPutDto {
+    id: number
+    name: string
+    cpf: string
+    telephone: string
+    email: string
+    password: string
+    profile: string
+    languageID: number
+    roles: string
+    active: boolean
+    constructor(id: number = 0,
+        name: string = "",
+        cpf: string = "",
+        telephone: string = "",
+        email: string = "",
+        password: string = "",
+        profile: string = "",
+        roles: string = "",
+        languageID: number = -1) {
+
+        this.id = id
+        this.name = name
+        this.cpf = cpf
+        this.telephone = telephone
+        this.email = email
+        this.password = password
+        this.profile = profile
+        this.languageID = languageID
+        this.roles = roles
+        this.active = true
+    }
+}
+
+export { User, UserDetailAuth, UserDetail, UserPostDto, UserPutDto }

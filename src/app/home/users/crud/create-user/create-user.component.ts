@@ -30,7 +30,7 @@ export class CreateUserComponent implements OnInit {
         this.modalGenericService.showModal("Usuário criado com sucesso")
         this.newUser = new UserPostDto()
       },
-      error: (e) => this.modalGenericService.showModal("Erro ao criar usuário, tente novamente mais tarde!")
+      error: (e) => this.modalGenericService.showModal(e.error.fieldsMessage)
     })
   }
 

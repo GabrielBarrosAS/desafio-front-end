@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
-import { User, UserDetail } from '../util/dtos/UserDtos';
+import { User, UserDetail, UserDetailAuth } from '../util/dtos/UserDtos';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ModalGenericService } from '../util/shared/modal-generic/modal-generic.service';
 
@@ -12,7 +12,7 @@ export class AuthService {
 
   private API = "http://localhost:8080/users/oauth"
 
-  private response: UserDetail = new UserDetail();
+  private response: UserDetailAuth = new UserDetailAuth();
 
   userAdminEmitter = new EventEmitter<boolean>();
   userEmitter = new EventEmitter<boolean>();
@@ -25,7 +25,6 @@ export class AuthService {
 
   headerOptions() {
 
-    console.log(this.getLocalStorage("token"))
     let authorizationData = 'Basic ' + this.getLocalStorage("token");
 
     const headerOptions = {
@@ -56,7 +55,7 @@ export class AuthService {
     this.setLocalStorage("token", "")
     this.setLocalStorage("roles", "")
 
-    this.http.post<UserDetail>(this.API, user).subscribe({
+    this.http.post<UserDetailAuth>(this.API, user).subscribe({
       next: data => {
 
         this.response = data
@@ -66,7 +65,7 @@ export class AuthService {
         this.http.get<UserDetail>(`http://localhost:8080/users/${this.response.id}`, this.headerOptions()).subscribe(
 
           data => {
-            this.response = data
+            this.response.roles = data.roles
             var listRoles = this.response.roles.split(",")
 
             if (listRoles.includes("ROLE_ADMIN")) {
