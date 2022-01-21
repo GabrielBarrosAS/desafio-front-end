@@ -30,9 +30,6 @@ export class MoviesCategoryComponent implements OnInit {
       this.movieShow = this._movieService.getMoviesCategory(this.id).slice(0, 3)
       this.categoryService.getCategoryById(this.id).subscribe(data => this.categoryDetail = data)
     });
-    setInterval(() => {
-      this.nextMovie()
-    }, 5000)
   }
 
   previousMovie() {

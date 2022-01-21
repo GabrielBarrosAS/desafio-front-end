@@ -43,12 +43,12 @@
     opacity: 20%;
     border-radius: 8%;
     width: 15%;
-    transition: 2s;
     z-index: -1;
+    border: unset;
 }
 
 .info-movie-selected{
-    transform: scale(1.2);
+    transform: scale(1.5,1.2);
     color: white;
     background-color: red;
     opacity: 100%;
