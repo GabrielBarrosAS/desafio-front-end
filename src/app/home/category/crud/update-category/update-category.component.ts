@@ -16,6 +16,7 @@ export class UpdateCategoryComponent implements OnInit {
   languageAll: LanguageDetail[] = []
   @Input() index = -1
   categoryPut: CategoryPutDto = new CategoryPutDto()
+  font_size = 14
 
   constructor(
     private categoryService: CategoryService,
@@ -28,6 +29,7 @@ export class UpdateCategoryComponent implements OnInit {
       this.updatePropertiesPutObject(this.categoryAll[this.index])
     })
     this.languageService.getLanguages().subscribe(data => this.languageAll = data)
+    this.font_size = Number(sessionStorage.getItem("font-size"))
   }
 
   categoryUpdateSelected(i: Event) {

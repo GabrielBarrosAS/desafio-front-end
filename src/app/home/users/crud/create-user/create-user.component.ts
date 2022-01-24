@@ -14,7 +14,7 @@ export class CreateUserComponent implements OnInit {
 
   newUser: UserPostDto = new UserPostDto()
   languageAll: LanguageDetail[] = []
-
+  font_size = 14
   constructor(
     private userService: UserService,
     private languageService: LanguageService,
@@ -22,6 +22,7 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.languageService.getLanguages().subscribe(data => this.languageAll = data)
+    this.font_size = Number(sessionStorage.getItem("font-size"))
   }
 
   createUser() {

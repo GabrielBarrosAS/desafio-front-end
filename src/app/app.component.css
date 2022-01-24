@@ -1,6 +1,6 @@
 .main-navbar{
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0px;
-    margin-bottom: 1%;
+    width: 100%;
+    position: fixed;
+    top: -10px;
+    left: 0;
 }

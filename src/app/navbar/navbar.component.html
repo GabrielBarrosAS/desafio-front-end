@@ -1,41 +1,87 @@
-<nav id="header" class="navbar d-flex justify-content-between">
-    <div class="nav">
-        <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
-            <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Movies</button>
-            <div class="dropdown-menu" *dropdownMenu>
-                <a class="dropdown-item" routerLink="create-movie">Criar Filme</a>
-                <a class="dropdown-item" routerLink="update-movie">Atualizar Filme</a>
-                <a *ngIf="userAutenticatedAdmin" class="dropdown-item" routerLink="delete-movie">Deletar Filme</a>
+<nav class="navbar d-flex flex-column">
+    <div class="accessibility d-flex" id="accessibility">
+        <div class="accessibility-div d-flex justify-content-center">
+            <div class="div-item-accessibility d-flex align-items-center">
+                <button class="accessibility-button">
+                    <mat-icon> K </mat-icon>
+                </button>
+                <span>Ir para o conteúdo</span>
             </div>
-        </li>
-        <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
-            <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Category</button>
-            <div class="dropdown-menu" *dropdownMenu>
-                <a class="dropdown-item" routerLink="create-category">Criar Categoria</a>
-                <a class="dropdown-item" routerLink="update-category">Atualizar Categoria</a>
-                <a *ngIf="userAutenticatedAdmin" class="dropdown-item" routerLink="delete-category">Deletar
-                    Categoria</a>
+            <div class="div-item-accessibility d-flex align-items-center">
+                <button class="accessibility-button">
+                    <mat-icon> Q </mat-icon>
+                </button>
+                <span>Menu</span>
             </div>
-        </li>
-        <li class="nav-item dropdown" dropdown *ngIf="userAutenticatedAdmin">
-            <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Users</button>
-            <div class="dropdown-menu" *dropdownMenu>
-                <a class="dropdown-item" routerLink="create-users">Criar Usuário</a>
-                <a class="dropdown-item" routerLink="update-users">Atualizar Usuário</a>
-                <a *ngIf="userAutenticatedAdmin" class="dropdown-item" routerLink="delete-users">Deletar Usuário</a>
+            <div class="div-item-accessibility d-flex align-items-center">
+                <button class="accessibility-button">
+                    <mat-icon> A </mat-icon>
+                </button>
+                <span>Atalhos de acessibilidade</span>
             </div>
-        </li>
+        </div>
+        <div class="accessibility-div d-flex justify-content-center">
+            <div class="div-item-accessibility d-flex align-items-center">
+                <button class="accessibility-button d-flex align-items-center" (click)="contrast()">
+                    <mat-icon> contrast </mat-icon>
+                </button>
+            </div>
+            <div class="div-item-accessibility d-flex align-items-center">
+                <button class="accessibility-button" (click)="increaseFont()">
+                    <mat-icon> A+ </mat-icon>
+                </button>
+            </div>
+            <div class="div-item-accessibility d-flex align-items-center">
+                <button class="accessibility-button" (click)="defaultFont()">
+                    <mat-icon> A </mat-icon>
+                </button>
+            </div>
+            <div class="div-item-accessibility d-flex align-items-center">
+                <button class="accessibility-button" (click)="decreaseFont()">
+                    <mat-icon> A- </mat-icon>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="nav d-flex justify-content-center">
-        <span class="systemName" id="leadTittle">Lead</span>
-        <span class="systemName" id="movieTittle">Movie</span>
-    </div>
-    <div class="nav">
-        <div class="input-group d-flex justify-content-end">
-            <input type="search" id="form1" placeholder="Search" />
-            <button type="button" class="btn d-flex align-items-center btn-header" type="submit">
-                <mat-icon> search </mat-icon>
-            </button>
+    <div id="header" class="d-flex justify-content-between">
+        <div class="nav">
+            <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
+                <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Movies</button>
+                <div class="dropdown-menu" *dropdownMenu>
+                    <a class="dropdown-item" routerLink="create-movie">Criar Filme</a>
+                    <a class="dropdown-item" routerLink="update-movie">Atualizar Filme</a>
+                    <a *ngIf="userAutenticatedAdmin" class="dropdown-item" routerLink="delete-movie">Deletar Filme</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" dropdown *ngIf="userAutenticated || userAutenticatedAdmin">
+                <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Category</button>
+                <div class="dropdown-menu" *dropdownMenu>
+                    <a class="dropdown-item" routerLink="create-category">Criar Categoria</a>
+                    <a class="dropdown-item" routerLink="update-category">Atualizar Categoria</a>
+                    <a *ngIf="userAutenticatedAdmin" class="dropdown-item" routerLink="delete-category">Deletar
+                        Categoria</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" dropdown *ngIf="userAutenticatedAdmin">
+                <button class="btn dropdown-toggle btn-header" href="#" dropdownToggle>Users</button>
+                <div class="dropdown-menu" *dropdownMenu>
+                    <a class="dropdown-item" routerLink="create-users">Criar Usuário</a>
+                    <a class="dropdown-item" routerLink="update-users">Atualizar Usuário</a>
+                    <a *ngIf="userAutenticatedAdmin" class="dropdown-item" routerLink="delete-users">Deletar Usuário</a>
+                </div>
+            </li>
+        </div>
+        <div class="nav d-flex justify-content-center">
+            <span class="systemName" id="leadTittle" [ngStyle]="{'font-size':3*fontSizeComponent + 'px'}">Lead</span>
+            <span class="systemName" id="movieTittle" [ngStyle]="{'font-size':3*fontSizeComponent + 'px'}">Movie</span>
+        </div>
+        <div class="nav">
+            <div class="input-group d-flex justify-content-end">
+                <input type="search" id="form1" placeholder="Search" />
+                <button type="button" class="btn d-flex align-items-center btn-header" type="submit">
+                    <mat-icon> search </mat-icon>
+                </button>
+            </div>
         </div>
     </div>
 </nav>

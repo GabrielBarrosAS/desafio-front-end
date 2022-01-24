@@ -1,33 +1,36 @@
 <div class="div-root">
   <form class="needs-validation">
     <div class="form-group">
-      <label>Tittle Movie</label>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Tittle Movie</label>
       <input [(ngModel)]="newMovie.tittle" name="tittle" type="text" class="form-control" placeholder="tittle" required>
     </div>
     <div class="form-group">
-      <label>Synopsis Movie</label>
-      <input [(ngModel)]="newMovie.synopsis" name="synopsis" type="text" class="form-control" placeholder="synopsis" required>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Synopsis Movie</label>
+      <input [(ngModel)]="newMovie.synopsis" name="synopsis" type="text" class="form-control" placeholder="synopsis"
+        required>
     </div>
     <div class="form-group">
-      <label>Image Movie</label>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Image Movie</label>
       <input [(ngModel)]="newMovie.image" name="image" type="text" class="form-control" placeholder="image" required>
     </div>
     <div class="form-group">
-      <label>LaunchData Movie</label>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">LaunchData Movie</label>
       <input [(ngModel)]="newMovie.launchData" name="launchData" type="date" class="form-control" required>
     </div>
     <div class="form-group">
-      <label>Duration Movie</label>
-      <input [(ngModel)]="newMovie.duration" name="duration" type="number" class="form-control" placeholder="duration" required>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Duration Movie</label>
+      <input [(ngModel)]="newMovie.duration" name="duration" type="number" class="form-control" placeholder="duration"
+        required>
     </div>
     <div class="form-group">
-      <label for="inputState">Select Language Movie</label>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Select Language Movie</label>
       <select [(ngModel)]="newMovie.languageID" name="languageID" id="inputState" class="form-control">
-        <option *ngFor="let item of languageAll, let i = index" [value]="languageAll[i].id">{{item.name}}({{item.tag}})</option>
+        <option *ngFor="let item of languageAll, let i = index" [value]="languageAll[i].id">{{item.name}}({{item.tag}})
+        </option>
       </select>
     </div>
     <div class="form-group">
-      <label for="inputState">Select Category Movie</label>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Select Category Movie</label>
       <select [(ngModel)]="newMovie.categoryID" name="categoryID" id="inputState" class="form-control">
         <option *ngFor="let item of categoryAll, let i = index" [value]="categoryAll[i].id">{{item.name}}</option>
       </select>

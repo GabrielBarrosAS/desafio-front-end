@@ -10,10 +10,12 @@ import { User } from '../util/dtos/UserDtos';
 export class LoginComponent implements OnInit {
 
   user: User = new User()
+  font_size = 14
 
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.font_size = Number(sessionStorage.getItem("font-size"))
   }
 
   fazerLogin() {

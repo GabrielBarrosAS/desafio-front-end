@@ -12,12 +12,15 @@ export class CategoryListComponent implements OnInit {
   categoryAll: CategoryDetail[] = []
   categoryToBeShow: CategoryDetail[] = []
   index = -1
+  font_size = 14
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService) {
+  }
 
   ngOnInit(): void {
     this.categoryService.getCategorys().subscribe(dados => this.categoryAll = dados)
     this.categoryService.getCategorys().subscribe(dados => this.categoryToBeShow = dados.slice(0, 5))
+    this.font_size = Number(sessionStorage.getItem("font-size"))
   }
 
   previousCategory() {

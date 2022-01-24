@@ -1,13 +1,15 @@
 #movie-item{
     font-family: 'Roboto';
     font-weight: 700;
-    font-size: 3vmin;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 11%;
     border-radius: 0% 0% 8% 8%;
     border: unset;
+}
+span{
+    font-size: 150%;
 }
 .movie-scroll-select{
     color: white;

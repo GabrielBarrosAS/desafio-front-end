@@ -16,6 +16,7 @@ export class CreateMovieComponent implements OnInit {
   languageAll: LanguageDetail[] = []
   categoryAll: CategoryDetail[] = []
   newMovie: MoviePostDto = new MoviePostDto()
+  font_size = 14
 
   constructor(
     private languageService: LanguageService,
@@ -27,6 +28,7 @@ export class CreateMovieComponent implements OnInit {
 
     this.languageService.getLanguages().subscribe(data => this.languageAll = data)
     this.categoryService.getCategorys().subscribe(data => this.categoryAll = data)
+    this.font_size = Number(sessionStorage.getItem("font-size"))
 
   }
 

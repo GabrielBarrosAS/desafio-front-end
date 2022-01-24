@@ -1,16 +1,22 @@
 <div class="div-root">
     <form>
-        <h1>Tela de Login</h1>
+        <h1>
+            <span [ngStyle]="{'font-size':2*font_size + 'px'}">
+                Tela de Login
+            </span>
+        </h1>
         <div class="form-group">
-            <label>Username</label>
-            <input [(ngModel)]="user.email" name="email" type="email" class="form-control">
+            <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Username</label>
+            <input [ngStyle]="{'font-size':1.5*font_size + 'px'}" [(ngModel)]="user.email" name="email" type="email"
+                class="form-control">
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input [(ngModel)]="user.password" name="senha" type="password" class="form-control">
+            <label [ngStyle]="{'font-size':1.5*font_size + 'px'}">Password</label>
+            <input [ngStyle]="{'font-size':1.5*font_size + 'px'}" [(ngModel)]="user.password" name="senha"
+                type="password" class="form-control">
         </div>
         <button type="submit" class="btn-submit" (click)="fazerLogin()">
-            <span>Login</span>
+            <span [ngStyle]="{'font-size':1.5*font_size + 'px'}">Login</span>
             <mat-icon> send </mat-icon>
         </button>
     </form>

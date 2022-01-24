@@ -18,7 +18,7 @@ export class UpdateMovieComponent implements OnInit {
   categoryAll: CategoryDetail[] = []
   movieAll: MovieDetail[] = []
   @Input() index: number = -1
-
+  font_size = 14
   moviePut: MoviePutDto = new MoviePutDto()
 
   constructor(
@@ -35,6 +35,7 @@ export class UpdateMovieComponent implements OnInit {
       this.movieAll = data
       this.updatePropertiesPutObject(this.movieAll[this.index])
     })
+    this.font_size = Number(sessionStorage.getItem("font-size"))
   }
 
   ngOnChanges(): void {

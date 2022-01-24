@@ -1,17 +1,17 @@
 <div class="div-root">
   <form class="needs-validation">
     <div class="form-group col-md-6">
-      <label>Name Category</label>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Name Category</label>
       <input [(ngModel)]="categoryForm.name" name="categoryName" type="text" class="form-control" placeholder="name"
         required>
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Tag Category</label>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Tag Category</label>
       <input [(ngModel)]="categoryForm.tag" name="categoryTag" type="text" class="form-control" placeholder="tag"
         required>
     </div>
     <div class="form-group col-md-6">
-      <label for="inputState">Select Language Category</label>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Select Language Category</label>
       <select [(ngModel)]="categoryForm.languageID" name="categoryLanguageId" (change)="languageSelected($event)"
         id="inputState" class="form-control">
         <option *ngFor="let item of languageAll, let i = index" [value]="languageAll[i].id">

@@ -16,7 +16,7 @@ export class UpdateUserComponent implements OnInit {
   languageAll: LanguageDetail[] = []
   @Input() index = -1
   userPut: UserPutDto = new UserPutDto()
-
+  font_size = 14
   constructor(
     private languageService: LanguageService,
     private modalGenericService: ModalGenericService,
@@ -29,6 +29,7 @@ export class UpdateUserComponent implements OnInit {
       console.log(this.index)
     })
     this.languageService.getLanguages().subscribe(data => this.languageAll = data)
+    this.font_size = Number(sessionStorage.getItem("font-size"))
   }
 
   userUpdateSelected(i: Event) {

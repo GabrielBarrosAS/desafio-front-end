@@ -33,7 +33,6 @@ form{
 label{
     color: white;
     font-weight: 500;
-    font-size: 20px;
 }
 
 .btn-submit{
@@ -41,7 +40,6 @@ label{
     color: black;
     width: 40%;
     font-weight: 500;
-    font-size: 20px;
     height: 30%;
     background-color: white;
     border: 2px solid black;

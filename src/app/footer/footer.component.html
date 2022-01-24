@@ -5,11 +5,11 @@
     </button>
     <button routerLink="login" class="button-footer" *ngIf="!userAutenticated && !userAutenticatedAdmin">
         <mat-icon> input </mat-icon>
-        <span>Login</span>
+        <span [ngStyle]="{'font-size':font_size + 'px'}">Login</span>
     </button>
     <button (click)="logout()" class="button-footer" *ngIf="userAutenticated || userAutenticatedAdmin">
         <mat-icon> logout </mat-icon>
-        <span>Logout</span>
+        <span [ngStyle]="{'font-size':font_size + 'px'}">Logout</span>
     </button>
     <button class="button-footer">
         <mat-icon> reorder </mat-icon>

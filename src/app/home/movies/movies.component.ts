@@ -13,6 +13,7 @@ export class MoviesComponent implements OnInit {
   moviesAll: MovieDetail[] = []
   movies: MovieDetail[] = []
   index = -1
+  font_size = 14
 
   constructor(private _movieService: MoviesService) {
     this.moviesService = _movieService
@@ -21,6 +22,7 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.moviesService.getMovies().subscribe(dados => this.moviesAll = dados)
     this.moviesService.getMovies().subscribe(dados => this.movies = dados.slice(0, 8))
+    this.font_size = Number(sessionStorage.getItem("font-size"))
   }
 
   mouseMovie(i: number) {

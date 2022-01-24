@@ -15,6 +15,7 @@ export class CreateCategoryComponent implements OnInit {
   languageAll: LanguageDetail[] = []
   categoryForm: CategoryPostDto = new CategoryPostDto()
   index = 0
+  font_size = 14
 
   constructor(
     private languageService: LanguageService,
@@ -24,6 +25,7 @@ export class CreateCategoryComponent implements OnInit {
   ngOnInit(): void {
 
     this.languageService.getLanguages().subscribe(data => this.languageAll = data)
+    this.font_size = Number(sessionStorage.getItem("font-size"))
 
   }
 

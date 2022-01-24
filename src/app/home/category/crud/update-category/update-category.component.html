@@ -1,7 +1,7 @@
 <div class="div-root">
   <form class="needs-validation">
     <div class="form-group drop-category">
-      <label>SELECT CATEGORY TO UPDATE</label>
+      <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">SELECT CATEGORY TO UPDATE</label>
       <select id="inputState" class="form-control" (change)="categoryUpdateSelected($event)">
         <option [selected]="index === -1" [value]="-1">SELECIONE UMA CATEGORIA</option>
         <option [selected]="index === i" *ngFor="let item of categoryAll, let i = index" [value]="i">
@@ -11,15 +11,15 @@
     </div>
     <div *ngIf="index != -1" class="div-form">
       <div class="form-group">
-        <label>Name Category</label>
+        <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Name Category</label>
         <input [(ngModel)]="categoryPut.name" name="name" type="text" class="form-control" required>
       </div>
       <div class="form-group">
-        <label>Tag Category</label>
+        <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Tag Category</label>
         <input [(ngModel)]="categoryPut.tag" name="tag" type="text" class="form-control" required>
       </div>
       <div class="form-group">
-        <label>Select Language Category</label>
+        <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Select Language Category</label>
         <select [(ngModel)]="categoryPut.languageID" name="languageID" id="inputState" class="form-control">
           <option *ngFor="let item of languageAll, let i = index" [value]="item.id">
             {{item.name}}({{item.tag}})</option>

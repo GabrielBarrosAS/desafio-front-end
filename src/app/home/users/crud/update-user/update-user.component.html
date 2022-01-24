@@ -1,6 +1,6 @@
 <div class="div-root">
     <div class="form-group drop-category">
-        <label>SELECT USER TO UPDATE</label>
+        <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">SELECT USER TO UPDATE</label>
         <select class="form-control" (change)="userUpdateSelected(($event))">
             <option [selected]="index === -1" [value]="-1">SELECIONE UM USUARIO</option>
             <option [selected]="index === i" *ngFor="let item of usersAll, let i = index" [value]="i">
@@ -11,43 +11,43 @@
     <div *ngIf="index != -1" class="d-flex justify-content-center">
         <form class="needs-validation d-flex justify-content-center">
             <div class="form-group">
-                <label>Name</label>
+                <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Name</label>
                 <input [(ngModel)]="userPut.name" name="name" type="text" class="form-control" placeholder="name"
                     required>
             </div>
             <div class="form-group">
-                <label>CPF</label>
+                <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">CPF</label>
                 <input [(ngModel)]="userPut.cpf" name="cpf" type="text" class="form-control" placeholder="cpf" required>
             </div>
             <div class="form-group">
-                <label>Telephone</label>
+                <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Telephone</label>
                 <input [(ngModel)]="userPut.telephone" name="telephone" type="text" class="form-control"
                     placeholder="telephone" required>
             </div>
             <div class="form-group">
-                <label>Profile</label>
+                <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Profile</label>
                 <input [(ngModel)]="userPut.profile" name="profile" type="text" class="form-control"
                     placeholder="profile" required>
             </div>
             <div class="form-group">
-                <label>Email</label>
+                <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Email</label>
                 <input [(ngModel)]="userPut.email" name="email" type="email" class="form-control" autocomplete="off"
                     placeholder="email" required>
             </div>
             <div class="form-group">
-                <label>Password</label>
+                <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Password</label>
                 <input [(ngModel)]="userPut.password" name="password" type="password" class="form-control"
                     placeholder="password" required>
             </div>
             <div class="form-group">
-                <label>Select the user language</label>
+                <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Select the user language</label>
                 <select [(ngModel)]="userPut.languageID" name="languageID" class="form-control">
                     <option *ngFor="let item of languageAll, let i = index" [value]="languageAll[i].id">
                         {{item.name}}({{item.tag}})</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Select Roles user</label>
+                <label [ngStyle]="{'font-size':(1.5*font_size) + 'px'}">Select Roles user</label>
                 <select [(ngModel)]="userPut.roles" name="roles" class="form-control">
                     <option value="ROLE_USER,ROLE_ADMIN">Admin</option>
                     <option value="ROLE_USER">User</option>
