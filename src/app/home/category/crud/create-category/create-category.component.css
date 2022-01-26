@@ -12,6 +12,7 @@ form{
     align-items: center;
     justify-content: space-between;
     padding-top: 2%;
+    border: 1px springgreen solid;
 }
 
 .form-group{
@@ -48,4 +49,19 @@ label{
     border: 2px solid white;
     background-color: black;
     color: white;
+}
+
+@media all and (max-width: 550px){
+    form{
+        margin-top: 20%;
+    }
+}
+
+@media all and (max-width: 850px){
+    form{
+        width: 100%;
+    }
+    .btn-submit{
+        width: 90px;
+    }
 }

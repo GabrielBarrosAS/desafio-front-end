@@ -57,3 +57,20 @@
     justify-content: center;
     align-items: center;
 }
+
+@media all and (max-width: 1000px){
+    .div-ng-for{
+        width: 40%;
+        margin-bottom: 10%;
+    }
+    .buttons{
+        width: 50%;
+    }
+}
+
+@media all and (max-width: 800px){
+    .div-ng-for{
+        width: 80%;
+        margin-bottom: 20%;
+    }
+}

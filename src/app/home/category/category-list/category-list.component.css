@@ -10,15 +10,29 @@
 }
 
 .div-content{
-    height: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 .categories-list{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 17%;
+    width: 19%;
     border-radius: 8%;
+    height: 100px;
+}
+
+@media all and (max-width:650px){
+    .categories-list{
+        margin: 2% 0% 2% 0%;
+        width: 30%;
+    }
+    .div-content{
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 }
 
 .category-item-button{

@@ -1,10 +1,6 @@
 <div class="d-flex flex-column justify-content-between div-root">
     <span class="variable-text">Filmes e programas de TV contendo...</span>
-    <div class="d-flex justify-content-between div-content">
-        <button class="category-carousel-button" (click)="previousCategory()">
-            <mat-icon> arrow_back </mat-icon>
-        </button>
-
+    <div class="div-content">
         <div *ngFor="let item of categoryToBeShow,let i = index" class="categories-list">
             <span class="category-item-button d-flex justify-content-center align-items-center"
                 [ngClass]="{'category-item-button-selected':i == index}" (click)="clickCategory(i)"
@@ -14,7 +10,11 @@
                 }">{{item.name}}
             </span>
         </div>
-
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+        <button class="category-carousel-button" (click)="previousCategory()">
+            <mat-icon> arrow_back </mat-icon>
+        </button>
         <button class="category-carousel-button" (click)="nextCategory()">
             <mat-icon> arrow_forward </mat-icon>
         </button>

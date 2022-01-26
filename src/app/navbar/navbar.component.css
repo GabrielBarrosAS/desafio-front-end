@@ -1,7 +1,9 @@
 #header{
     width: 100%;
     background-color: #3d3d3d;
-    padding-top: 1%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: -1px;
 }
 
 .dropdown-item{
@@ -44,8 +46,8 @@
     font-weight: 700;
     outline: none;
     white-space: nowrap;
-
 }
+
 #leadTittle{
     transform: rotate(-4deg);
 }
@@ -60,6 +62,18 @@
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
+}
+
+@media all and (max-width: 625px){
+    #leadTittle{
+        transform: scale(0.8);
+    }
+    #movieTittle{
+        transform: scale(0.8);
+    }
+    #form1{
+        width: 60%;
+    }
 }
 
 .accessibility{
@@ -88,6 +102,27 @@
 .accessibility-button:hover{
     background-color: white;
     color: #00447c;
+}
+
+@media all and (max-width: 400px){
+    .accessibility{
+        flex-wrap: wrap;
+    }
+}
+
+@media all and (max-width: 620px){
+    .accessibility{
+        flex-wrap: wrap;
+    }
+    .accessibility-div{
+        width: 100%;
+        justify-content: space-between;
+    }
+    .div-item-accessibility{
+        width: 100%;
+        margin-right: 0%;
+        justify-content: center;
+    }
 }
 
 .nav {

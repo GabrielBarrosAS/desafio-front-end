@@ -63,3 +63,18 @@ label{
     background-color: black;
     color: white;
 }
+
+@media all and (max-width: 400px){
+    form{
+        margin-top: 40%;
+    }
+}
+
+@media all and (max-width: 850px){
+    form{
+        width: 100%;
+    }
+    .btn-submit{
+        width: 90px;
+    }
+}

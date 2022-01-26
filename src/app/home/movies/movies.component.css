@@ -8,6 +8,17 @@
     border-radius: 0% 0% 8% 8%;
     border: unset;
 }
+
+@media all and (max-width: 1100px){
+    #list-movies{
+        flex-wrap: wrap;
+    }
+    #movie-item{
+        width: 25%;
+    }
+}
+
+
 span{
     font-size: 150%;
 }
